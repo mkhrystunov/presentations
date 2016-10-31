@@ -1,0 +1,872 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="css/default.css"/>
+    <link rel="stylesheet" href="css/clean_code.css"/>
+    <title>Clean code</title>
+</head>
+<body>
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified
+        version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<div id="impress">
+    <div class="step slide">
+        <q>Clean &lt;Code/&gt;</q>
+    </div>
+
+    <div class="step slide" data-y="350" data-z="-350" data-rotate-x="-90">
+        <q>
+            Максим Христунов<br>
+            Skype: <b>maksym.khrystunov</b>
+        </q>
+    </div>
+
+    <div class="step slide" data-y="0" data-z="-700" data-rotate-x="-180">
+        <p class="title">Який код можна вважати гарним?</p>
+        <ul>
+            <li>Читабельний</li>
+            <li>Такий, що можна підтримувати (maintainable)</li>
+            <li>Такий, що можна протестувати (testable)</li>
+            <li>Елегантний</li>
+        </ul>
+    </div>
+
+    <div class="step" data-x="2000">
+        Чому це важливо?
+    </div>
+
+    <div class="step" data-x="1800" data-z="-12000" data-rotate-z="360">
+        Код постійно змінюється із розвитком проекту
+        <img src="images/clean_code/thanks_god_not_everything_is_software.jpg">
+    </div>
+
+    <div class="step" data-x="3200" data-y="-1000" data-z="-12000" data-rotate-z="360">
+        Виправлення багів
+    </div>
+
+    <div class="step" data-x="3200" data-y="-500" data-z="-12000" data-rotate-z="360">
+        Зміни в бізнес складовій
+    </div>
+
+    <div class="step" data-x="3200" data-z="-12000" data-rotate-z="360">
+        Різноманітні поліпшення
+    </div>
+
+    <div class="step" data-x="3200" data-y="500" data-z="-12000" data-rotate-z="360">
+        Новий функціонал
+    </div>
+
+    <div class="step slide" data-x="4200">
+        <p class="title">Що ж заважає писати чистий код?</p>
+        <ul>
+            <li>Ігнорування</li>
+            <li>Впертість</li>
+            <li>"Синдром контрактників"</li>
+            <li>Зарозумілість</li>
+            <li>Забезпечення роботою</li>
+            <li>Планування</li>
+        </ul>
+    </div>
+
+    <div class="step" data-x="4200" data-z="1000">
+        Проте причина номер один - "Я виправлю потім"
+    </div>
+
+    <div class="step" data-x="4200" data-z="2000">
+        Підказка: "Потім" ніколи не настає
+    </div>
+
+    <div class="step" data-x="4000" data-y="1000" data-rotate-y="-90">
+        Навіщо ж "чистий" код?
+    </div>
+
+    <div class="step" data-x="4000" data-y="1000" data-z="1500" data-rotate-y="-90">
+        <ul>
+            <li>Він зберігає наш час</li>
+            <li>Програми довготривалі</li>
+            <li>Ми повинні враховувати майбутні зміни</li>
+        </ul>
+    </div>
+
+    <div class="step slide" data-x="4000" data-y="1000" data-z="3000" data-rotate-y="-90">
+        <p class="title">Практичне правило написання чистого коду:</p>
+        <q>
+            Уявіть, що наступний програміст, який працюватиме із вашим кодом,
+            страждає манією вбивства.<br>
+            <strong>І він знає, де ви живете</strong>
+        </q>
+    </div>
+
+    <div class="step" data-x="5000" data-y="1000" data-z="3000" data-rotate-y="-90">
+        <p class="title">
+            Наступний програміст
+        </p>
+        <img src="images/clean_code/jason.jpg">
+    </div>
+
+    <div class="step slide" data-x="4000" data-y="1000" data-z="4500" data-rotate-y="-90">
+        <p class="title">Проблема</p>
+        <ul>
+            <li>Читабельний</li>
+            <li>Такий, що можна підтримувати (maintainable)</li>
+            <li>Такий, що можна протестувати (testable)</li>
+            <li>Елегантний</li>
+        </ul>
+        <strong>Це все суб'єктивно</strong>
+    </div>
+
+    <div class="step" data-x="4000" data-y="1000" data-z="6000" data-rotate-y="-90">
+        <div>
+            <img src="images/clean_code/clean_code_book.jpg">
+            <p>Robert C. Martin "Clean Code"</p>
+        </div>
+        <div>
+            <img src="images/clean_code/working_effectively_with_legacy_code.jpg">
+            <p>Michael C. Feathers "Working effectively with legacy code"</p>
+        </div>
+    </div>
+
+    <div class="step" data-x="6000" data-rotate-x="90">
+        <b>D</b>on't <b>R</b>epeat <b>Y</b>ourself
+    </div>
+
+    <div class="step" data-x="8000" data-rotate-x="90">
+        <p class="title">Найменування</p>
+        <img src="images/clean_code/programmers_harders_tasks.jpg">
+    </div>
+
+    <div class="step slide" data-x="8000" data-y="1000" data-rotate-x="90">
+        <ul>
+            <li>
+                <strong>Для змінних, властивостей та параметрів використовувати іменники</strong><br>
+                indexer, currentUser, PriceFilter
+            </li>
+            <li>
+                <strong>Для методів та функцій — дієслова</strong><br>
+                SaveOrder(), getDiscounts(), RunPayroll()
+            </li>
+            <li>
+                <strong>Легковимовні та недвозначні</strong><br>
+                recdptrl = received_patrol['record_department_role']
+            </li>
+            <li>
+                <strong>Стандарт іменування</strong><br>
+                camelCase<br>
+                PascalCase<br>
+                snake_case<br>
+                <strong>Неважливо! Просто майте стандарт та будьте послідовними</strong>
+            </li>
+        </ul>
+    </div>
+
+    <div class="step slide" data-x="10000" data-rotate-x="90">
+        <p class="title">Коментарі</p>
+        <ul>
+            <li>Вони неправдиві</li>
+            <li>Вони не роблять поганий код хорошим</li>
+        </ul>
+        <p class="title">Проте коментарі бувають "хороші"</p>
+        <ul>
+            <li>
+                <strong>Для опису чи роз'яснення</strong><br>
+                <code>// Sample output: Oct 20, 2016 - 12:34:15</code>
+            </li>
+            <li>
+                <strong>Для попередження про неочевидні наслідки</strong><br>
+                <code>// We do a deep copy of this collection to make sure we don't change it</code>
+            </li>
+            <li>
+                <strong>Можуть бути використані для TODO</strong><br>
+                Особливо коли IDE їх підтримує<br>
+                Повинні бути тимчасові
+            </li>
+        </ul>
+    </div>
+
+    <div class="step" data-x="10000" data-rotate-y="-90">
+        CSS CodeStyle
+    </div>
+
+    <div class="step slide" data-x="11000" data-rotate-y="-90">
+        <p class="title">Порядок запису css правил</p>
+        <ul>
+            <li>В алфавітному порядку</li>
+            <li>RECESS</li>
+            <li>Concentric</li>
+            <li>SMACSS</li>
+        </ul>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="1500">
+        <p class="title">BangFormat</p>
+        <div class="bad">
+            <p>Bad</p>
+            <code>
+                color: #000!important;
+            </code>
+        </div>
+        <div class="good">
+            <p>Good</p>
+            <code>color: #000 !important;</code>
+        </div>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="3000">
+        <p class="title">BemDepth (1)</p>
+        <div class="bad">
+            <p>Bad</p>
+            <code>
+                .block__element__subelement { ... }
+            </code>
+        </div>
+        <div class="good">
+            <p>Good</p>
+            <code>
+                .block__element { ... }
+            </code>
+        </div>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="4500">
+        <p class="title">BorderZero</p>
+        <div class="bad">
+            <p>Bad</p>
+            <code>border: none;</code>
+        </div>
+        <div class="good">
+            <p>Good</p>
+            <code>border: 0;</code>
+        </div>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="6000">
+        <p class="title">ColorKeyword</p>
+        <div class="bad">
+            <p>Bad</p>
+            <code>color: green;</code>
+        </div>
+        <div class="good">
+            <p>Good</p>
+            <code>color: #0F0;</code>
+        </div>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="7500">
+        <p class="title">DuplicateProperty</p>
+        <div class="bad">
+            <p>Bad</p>
+            <code>
+                h1 {<br>
+                &nbsp;&nbsp;margin: 10px;<br>
+                &nbsp;&nbsp;padding: 0;<br>
+                &nbsp;&nbsp;margin: 0;<br>
+                }
+            </code>
+        </div>
+        <div class="good">
+            <p>Good</p>
+            <code>
+                h1 {<br>
+                &nbsp;&nbsp;margin: 10px;<br>
+                &nbsp;&nbsp;padding: 0;<br>
+                }
+            </code>
+        </div>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="9000">
+        <p class="title">EmptyLineBetweenBlocks</p>
+        <div class="bad">
+            <p>Bad</p>
+            <code>
+                h1 {<br>
+                &nbsp;&nbsp;margin: 10px;<br>
+                &nbsp;&nbsp;padding: 0;<br>
+                }<br>
+                p {<br>
+                &nbsp;&nbsp;color: #000;<br>
+                }
+            </code>
+        </div>
+        <div class="good">
+            <p>Good</p>
+            <code>
+                h1 {<br>
+                &nbsp;&nbsp;margin: 10px;<br>
+                &nbsp;&nbsp;padding: 0;<br>
+                }<br><br>
+                p {<br>
+                &nbsp;&nbsp;color: #000;<br>
+                }
+            </code>
+        </div>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="10500">
+        <p class="title">EmptyRule</p>
+        <div class="bad">
+            <p>Bad</p>
+            <code>
+                h1 {<br>
+                }
+            </code>
+        </div>
+        <div class="good">
+            <p>Good</p>
+            <code>
+                h1 {<br>
+                &nbsp;&nbsp;color: #000;<br>
+                }
+            </code>
+        </div>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="12000">
+        <p class="title">FinalNewline</p>
+        <div class="bad">
+            <p>Bad</p>
+            <code>
+                h1 {<br>
+                &nbsp;&nbsp;color: #000;<br>
+                }
+            </code>
+        </div>
+        <div class="good">
+            <p>Good</p>
+            <code>
+                h1 {<br>
+                &nbsp;&nbsp;color: #000;<br>
+                }<br>
+                &nbsp;
+            </code>
+        </div>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="13500">
+        <p class="title">HexLength</p>
+        <div class="bad">
+            <p>Bad</p>
+            <code>
+                h1 {<br>
+                &nbsp;&nbsp;color: #FF22EE;<br>
+                }
+            </code>
+        </div>
+        <div class="good">
+            <p>Good</p>
+            <code>
+                h1 {<br>
+                &nbsp;&nbsp;color: #F2E;<br>
+                }
+            </code>
+        </div>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="15000">
+        <p class="title">HexValidation</p>
+        <div class="bad">
+            <p>Bad</p>
+            <code>
+                h1 {<br>
+                &nbsp;&nbsp;color: #F2;<br>
+                }
+            </code>
+        </div>
+        <div class="good">
+            <p>Good</p>
+            <code>
+                h1 {<br>
+                &nbsp;&nbsp;color: #F2E;<br>
+                }
+            </code>
+        </div>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="16500">
+        <p class="title">IdSelector</p>
+        <div class="bad">
+            <p>Bad</p>
+            <code>
+                #text {<br>
+                &nbsp;&nbsp;color: #F2E;<br>
+                }
+            </code>
+        </div>
+        <div class="good">
+            <p>Good</p>
+            <code>
+                .text {<br>
+                &nbsp;&nbsp;color: #F2E;<br>
+                }
+            </code>
+        </div>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="18000">
+        <p class="title">ImportantRule</p>
+        <div class="bad">
+            <p>Bad</p>
+            <code>
+                .text {<br>
+                &nbsp;&nbsp;color: #F2E !important;<br>
+                }
+            </code>
+        </div>
+        <div class="good">
+            <p>Good</p>
+            <code>
+                .text {<br>
+                &nbsp;&nbsp;color: #F2E;<br>
+                }
+            </code>
+        </div>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="19500">
+        <p class="title">Indentation</p>
+        <div class="bad">
+            <p>Bad: two spaces</p>
+            <code>
+                .text {<br>
+                &nbsp;color: #F2E;<br>
+                }
+            </code>
+        </div>
+        <div class="good">
+            <p>Good: four spaces</p>
+            <code>
+                .text {<br>
+                &nbsp;&nbsp;color: #F2E;<br>
+                }
+            </code>
+        </div>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="21000">
+        <p class="title">LeadingZero</p>
+        <div class="bad">
+            <p>Bad</p>
+            <code>
+                .text {<br>
+                &nbsp;&nbsp;opacity: 0.5;<br>
+                }
+            </code>
+        </div>
+        <div class="good">
+            <p>Good</p>
+            <code>
+                .text {<br>
+                &nbsp;&nbsp;opacity: .5;<br>
+                }
+            </code>
+        </div>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="22500">
+        <p class="title">MergeableSelector</p>
+        <div class="bad">
+            <p>Bad</p>
+            <code>
+                h1 {<br>
+                &nbsp;&nbsp;opacity: 0.5;<br>
+                }<br><br>
+                h1 {<br>
+                &nbsp;&nbsp;color: #000;<br>
+                }
+            </code>
+        </div>
+        <div class="good">
+            <p>Good</p>
+            <code>
+                h1 {<br>
+                &nbsp;&nbsp;opacity: 0.5;<br>
+                &nbsp;&nbsp;color: #000;<br>
+                }
+            </code>
+        </div>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="24000">
+        <p class="title">PseudoElement</p>
+        <div class="bad">
+            <p>Bad</p>
+            <code>
+                p:before {<br>
+                &nbsp;&nbsp;content: '>';<br>
+                }<br><br>
+                p::hover {<br>
+                &nbsp;&nbsp;color: #F00;<br>
+                }
+            </code>
+        </div>
+        <div class="good">
+            <p>Good</p>
+            <code>
+                p::before {<br>
+                &nbsp;&nbsp;content: '>';<br>
+                }<br><br>
+                p:hover {<br>
+                &nbsp;&nbsp;color: #F00;<br>
+                }
+            </code>
+        </div>
+    </div>
+
+    <div class="step slide" data-x="10000" data-rotate-y="-90" data-z="25500">
+        <p class="title">SelectorFormat</p>
+        <div class="good center">
+            <p>Good</p>
+            <code>
+                // convention: 'hyphenated_lowercase'<br>
+                .foo-bar-77, foo-bar, #foo-bar {}<br><br>
+                // convention: 'snake_case'<br>
+                .foo_bar77, foo_bar, #foo_bar {}<br><br>
+                // convention: 'camel_case'<br>
+                .fooBar77, fooBar, #fooBar {}
+            </code>
+        </div>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="27000">
+        <p class="title">Shorthand</p>
+        <div class="bad">
+            <p>Bad</p>
+            <code>
+                div {<br>
+                &nbsp;&nbsp;margin: 1px 1px 1px 1px;<br>
+                }
+            </code>
+        </div>
+        <div class="good">
+            <p>Good</p>
+            <code>
+                div {<br>
+                &nbsp;&nbsp;margin: 1px;<br>
+                }
+            </code>
+        </div>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="28500">
+        <p class="title">SingleLinePerProperty</p>
+        <div class="bad">
+            <p>Bad</p>
+            <code>
+                div {<br>
+                &nbsp;&nbsp;margin: 0; padding: 0;<br>
+                }
+            </code>
+        </div>
+        <div class="good">
+            <p>Good</p>
+            <code>
+                div {<br>
+                &nbsp;&nbsp;margin: 0;<br>
+                &nbsp;&nbsp;padding: 0;<br>
+                }
+            </code>
+        </div>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="30000">
+        <p class="title">SingleLinePerSelector</p>
+        <div class="bad">
+            <p>Bad</p>
+            <code>
+                .error p, p.explanation {<br>
+                &nbsp;&nbsp;...<br>
+                }
+            </code>
+        </div>
+        <div class="good">
+            <p>Good</p>
+            <code>
+                .error p,<br>
+                p.explanation {<br>
+                &nbsp;&nbsp;...<br>
+                }
+            </code>
+        </div>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="31500">
+        <p class="title">SpaceAfterComma</p>
+        <div class="bad">
+            <p>Bad</p>
+            <code>
+                p {<br>
+                &nbsp;&nbsp;color: rgba(0,0,0,.1)<br>
+                }
+            </code>
+        </div>
+        <div class="good">
+            <p>Good</p>
+            <code>
+                p {<br>
+                &nbsp;&nbsp;color: rgba(0, 0, 0, .1)<br>
+                }
+            </code>
+        </div>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="33000">
+        <p class="title">SpaceAfterPropertyColon</p>
+        <div class="bad">
+            <p>Bad</p>
+            <code>
+                p {<br>
+                &nbsp;&nbsp;margin:0;<br>
+                }
+            </code>
+        </div>
+        <div class="good">
+            <p>Good</p>
+            <code>
+                p {<br>
+                &nbsp;&nbsp;margin: 0;<br>
+                }
+            </code>
+        </div>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="34500">
+        <p class="title">SpaceAfterPropertyName</p>
+        <div class="bad">
+            <p>Bad</p>
+            <code>
+                p {<br>
+                &nbsp;&nbsp;margin : 0;<br>
+                }
+            </code>
+        </div>
+        <div class="good">
+            <p>Good</p>
+            <code>
+                p {<br>
+                &nbsp;&nbsp;margin: 0;<br>
+                }
+            </code>
+        </div>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="36000">
+        <p class="title">SpaceBeforeBrace</p>
+        <div class="bad">
+            <p>Bad</p>
+            <code>
+                p{<br>
+                &nbsp;&nbsp;margin: 0;<br>
+                }
+            </code>
+        </div>
+        <div class="good">
+            <p>Good</p>
+            <code>
+                p {<br>
+                &nbsp;&nbsp;margin: 0;<br>
+                }
+            </code>
+        </div>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="37500">
+        <p class="title">StringQuotes</p>
+        <div class="bad">
+            <p>Bad</p>
+            <code>
+                p::before {<br>
+                &nbsp;&nbsp;content: "hello";<br>
+                }
+            </code>
+        </div>
+        <div class="good">
+            <p>Good</p>
+            <code>
+                p::before {<br>
+                &nbsp;&nbsp;content: 'hello';<br>
+                }
+            </code>
+        </div>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="39000">
+        <p class="title">TrailingSemicolon</p>
+        <div class="bad">
+            <p>Bad</p>
+            <code>
+                p {<br>
+                &nbsp;&nbsp;color: #FFF<br>
+                &nbsp;&nbsp;opacity: .5;<br>
+                }
+            </code>
+        </div>
+        <div class="good">
+            <p>Good</p>
+            <code>
+                p {<br>
+                &nbsp;&nbsp;color: #FFF;<br>
+                &nbsp;&nbsp;opacity: .5;<br>
+                }
+            </code>
+        </div>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="41500">
+        <p class="title">TrailingWhitespace</p>
+        <div class="bad">
+            <p>Bad</p>
+            <code>
+                &nbsp;<br>
+                &nbsp;<br>
+                p {<br>
+                &nbsp;&nbsp;color: #FFF;<br>
+                &nbsp;&nbsp;opacity: .5;<br>
+                }
+            </code>
+        </div>
+        <div class="good">
+            <p>Good</p>
+            <code>
+                p {<br>
+                &nbsp;&nbsp;color: #FFF;<br>
+                &nbsp;&nbsp;opacity: .5;<br>
+                }
+            </code>
+        </div>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="43000">
+        <p class="title">TrailingZero</p>
+        <div class="bad">
+            <p>Bad</p>
+            <code>
+                p {<br>
+                &nbsp;&nbsp;margin: .500em;<br>
+                }
+            </code>
+        </div>
+        <div class="good">
+            <p>Good</p>
+            <code>
+                p {<br>
+                &nbsp;&nbsp;margin: .5em;<br>
+                }
+            </code>
+        </div>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="44500">
+        <p class="title">TransitionAll</p>
+        <div class="bad">
+            <p>Bad</p>
+            <code>
+                p {<br>
+                &nbsp;&nbsp;transition: all .5s ease-in;<br>
+                }
+            </code>
+        </div>
+        <div class="good">
+            <p>Good</p>
+            <code>
+                p {<br>
+                &nbsp;&nbsp;transition: color .5s ease-in;<br>
+                }
+            </code>
+        </div>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="46000">
+        <p class="title">UnnecessaryMantissa</p>
+        <div class="bad">
+            <p>Bad</p>
+            <code>
+                p {<br>
+                &nbsp;&nbsp;margin: 1.0em;<br>
+                }
+            </code>
+        </div>
+        <div class="good">
+            <p>Good</p>
+            <code>
+                p {<br>
+                &nbsp;&nbsp;margin: 1em;<br>
+                }
+            </code>
+        </div>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="47500">
+        <p class="title">UrlFormat</p>
+        <div class="bad">
+            <p>Bad</p>
+            <code>
+                div {<br>
+                &nbsp;&nbsp;background: url('https://s.com/i.png');<br>
+                }
+            </code>
+        </div>
+        <div class="good">
+            <p>Good</p>
+            <code>
+                div {<br>
+                &nbsp;&nbsp;background: url('/i.png');<br>
+                }
+            </code>
+        </div>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="49000">
+        <p class="title">UrlQuotes</p>
+        <div class="bad">
+            <p>Bad</p>
+            <code>
+                div {<br>
+                &nbsp;&nbsp;background: url(i.png);<br>
+                }
+            </code>
+        </div>
+        <div class="good">
+            <p>Good</p>
+            <code>
+                div {<br>
+                &nbsp;&nbsp;background: url('i.png');<br>
+                }
+            </code>
+        </div>
+    </div>
+
+    <div class="step slide css-rule" data-x="10000" data-rotate-y="-90" data-z="51500">
+        <p class="title">ZeroUnit</p>
+        <div class="bad">
+            <p>Bad</p>
+            <code>
+                div {<br>
+                &nbsp;&nbsp;padding: 0px;<br>
+                }
+            </code>
+        </div>
+        <div class="good">
+            <p>Good</p>
+            <code>
+                div {<br>
+                &nbsp;&nbsp;padding: 0;<br>
+                }
+            </code>
+        </div>
+    </div>
+
+    <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="5">
+        Чи є у вас запитання?
+    </div>
+</div>
+
+<script type="text/javascript" src="js/impress.js"></script>
+<script>impress().init();</script>
+</body>
+</html>

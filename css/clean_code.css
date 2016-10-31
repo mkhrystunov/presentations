@@ -1,0 +1,19 @@
+.css-rule .title {
+    margin: 2em 0 3em 0;
+}
+
+.css-rule .bad {
+    float: left;
+}
+
+.bad > p {
+    color: #F00;
+}
+
+.css-rule .good {
+    float: right
+}
+
+.good > p {
+    color: #0F0;
+}
