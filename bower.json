@@ -1,0 +1,21 @@
+{
+  "name": "presentations",
+  "homepage": "https://mkhrystunov.github.io/presentations/",
+  "authors": [
+    "Maksym Khrystunov <mkhrystunov@gmail.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "MDBootstrap": "^4.2.0"
+  }
+}
