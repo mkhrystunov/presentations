@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="css/default.css"/>
+    <link rel="stylesheet" href="css/flexbox.css"/>
+    <title>CSS Units</title>
+</head>
+<body>
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified
+        version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<div id="impress">
+    <div class="step slide">
+        <q>CSS Units</q>
+    </div>
+
+    <div class="step slide" data-y="1000">
+        <p class="title">Одиниці виміру</p>
+        <ul>
+            <li>
+                <code>%</code> — у відсотках відносно іншого елементу (зазвичай батьківського)
+            </li>
+            <li>
+                <code>cm</code> — у сантиметрах
+            </li>
+            <li>
+                <code>em</code> — відносна одиниця. буде у розмірі шрифту батьківського елементу
+            </li>
+            <li>
+                <code>rem</code> — відносна одиниця. Працює аналогічно "em", проте за базис бере шрифт від кореня (html)
+            </li>
+            <li>
+                <code>ex</code> — відносна одиниця. анаглог em, проте вираховується залежно від FontFamily
+            </li>
+            <li>
+                <code>ch</code> — відносна одиниця. анаглог rem, проте вираховується залежно від FontFamily
+            </li>
+            <li>
+                <code>in</code> — у дюймах
+            </li>
+            <li>
+                <code>mm</code> — міліметри
+            </li>
+        </ul>
+    </div>
+
+    <div class="step slide" data-y="2000">
+        <p class="title">Одиниці виміру (продовження)</p>
+        <ul>
+            <li>
+                <code>pc</code> — 1 pc = 12 pt
+            </li>
+            <li>
+                <code>pt</code> — 1/72 дюйму
+            </li>
+            <li>
+                <code>px</code> — піксель
+            </li>
+            <li>
+                <code>vh</code> — 1% висоти екрану  (view height)
+            </li>
+            <li>
+                <code>vw</code> — 1% ширини екрану (view width)
+            </li>
+            <li>
+                <code>vmin</code> — 1% меншої сторони екрану
+            </li>
+            <li>
+                <code>vmax</code> — 1% більшої сторони екрану
+            </li>
+        </ul>
+    </div>
+
+    <div class="step slide" data-y="3000">
+        <p class="title">Застарілі одиниці</p>
+        <ul>
+            <li>1mm</li>
+            <li>1cm</li>
+            <li>1pt</li>
+            <li>1pc</li>
+            <li>1in</li>
+        </ul>
+    </div>
+
+    <div class="step slide" data-y="4000">
+        <p class="title">PX</p>
+        <ul>
+            <li>Чіткість</li>
+            <li>Постійність</li>
+            <li>Зрозумілість</li>
+            <li class="strike-through">Гнучкість</li>
+        </ul>
+    </div>
+
+    <div class="step slide" data-y="5000">
+        <p class="title">%</p>
+        <ul>
+            <li>Гнучкість</li>
+            <li class="strike-through">Функціональність</li>
+        </ul>
+    </div>
+
+    <div class="step slide" data-y="6000">
+        <p class="title">em та rem</p>
+        <ul>
+            <li>Гнучкість</li>
+            <li class="strike-through">Зручність у використанні і підтримці</li>
+        </ul>
+    </div>
+
+    <div class="step" data-y="7000">
+        <p class="title">Проблема із EM</p>
+        <img class="full-width" src="images/css_units/em_problem_css.png">
+    </div>
+
+    <div class="step" data-y="8000">
+        <p class="title">Проблема із EM</p>
+        <img class="full-width" src="images/css_units/em_problem_html.png">
+    </div>
+
+    <div class="step" data-y="9000">
+        <p class="title">Проблема із EM</p>
+        <img class="full-width" src="images/css_units/em_problem_result.png">
+    </div>
+
+    <div class="step" data-y="10000">
+        <p class="title">vmin</p>
+        <img class="full-width" src="images/css_units/vmin.png">
+    </div>
+
+    <div class="step" data-y="11000">
+        <p class="title">vmax</p>
+        <img class="full-width" src="images/css_units/vmax.png">
+    </div>
+
+    <div id="overview" class="step" data-y="5000" data-scale="5">
+        Чи є у вас запитання?
+    </div>
+</div>
+
+<script type="text/javascript" src="js/impress.js"></script>
+<script>impress().init();</script>
+</body>
+</html>

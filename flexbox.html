@@ -1,0 +1,506 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="css/default.css"/>
+    <link rel="stylesheet" href="css/flexbox.css"/>
+    <title>Flexbox</title>
+</head>
+<body>
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified
+        version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<div id="impress">
+    <div class="step slide">
+        <q>Flexbox</q>
+    </div>
+
+    <div class="step" data-y="1000">
+        <img src="images/flexbox/css_is_awesome.png">
+    </div>
+
+    <div class="step" data-x="1500">
+        <p>
+            <code>Flexbox Layout</code> (Flexible Box) призначено для більш ефективної роботи із вирівнювання,
+            розміщення та розподілу простору між елементами в контейнері, навіть якщо їх розмір невідомий або динамічний
+        </p>
+    </div>
+
+    <div class="step" data-x="3000">
+        <p>
+            Головна ідея — надати контейнеру можливість змінювати свою висоту, ширину (і порядок) аби якнайкраще
+            заповнити доступне місце. Гнучкі контейнери розширюють свої елементи щоб заповнити вільне місце, або
+            стискають, щоб запобігти переповненню.
+        </p>
+    </div>
+
+    <div class="step" data-x="4500">
+        <p>Властивості контейнеру (батьківського елементу)</p>
+    </div>
+
+    <div class="step slide" data-x="4500" data-y="1000">
+        <p class="title">display</p>
+        <code>
+            .container {<br>
+            &nbsp;&nbsp;display: flex;<br>
+            }
+        </code>
+    </div>
+
+    <div class="step slide" data-x="4500" data-y="2000">
+        <p class="title">flex-direction</p>
+        <img src="images/flexbox/flex-direction.svg">
+        <ul>
+            <li>
+                <code>row</code> (за замовчуванням) зліва направо
+            </li>
+            <li>
+                <code>row-reverse</code> зправа наліво
+            </li>
+            <li>
+                <code>column</code> згори донизу
+            </li>
+            <li>
+                <code>column-reverse</code> знизу догори
+            </li>
+        </ul>
+    </div>
+
+    <div class="step" data-x="4500" data-y="2000" data-rotate-y="90">
+        <p class="title">row</p>
+        <img src="images/flexbox/flexbox-flex-direction-row.jpg">
+    </div>
+
+    <div class="step" data-x="4500" data-y="2000" data-rotate-y="90" data-z="-1500">
+        <p class="title">row-reverse</p>
+        <img src="images/flexbox/flexbox-flex-direction-row-reverse.jpg">
+    </div>
+
+    <div class="step" data-x="4500" data-y="2000" data-rotate-y="90" data-z="-3000">
+        <p class="title">column</p>
+        <img src="images/flexbox/flexbox-flex-direction-column.jpg">
+    </div>
+
+    <div class="step" data-x="4500" data-y="2000" data-rotate-y="90" data-z="-4500">
+        <p class="title">column-reverse</p>
+        <img src="images/flexbox/flexbox-flex-direction-column-reverse.jpg">
+    </div>
+
+    <div class="step slide" data-x="4500" data-y="3000">
+        <p class="title">flex-wrap</p>
+        <img src="images/flexbox/flex-wrap.svg">
+        <ul>
+            <li>
+                <code>nowrap</code> (за замовчуванням) в одну лінію
+            </li>
+            <li>
+                <code>wrap</code> в декілька ліній
+            </li>
+            <li>
+                <code>wrap-reverse</code> в декілька ліній у зворотньому порядку
+            </li>
+        </ul>
+    </div>
+
+    <div class="step" data-x="4500" data-y="3000" data-rotate-y="90">
+        <p class="title">nowrap</p>
+        <img src="images/flexbox/flexbox-flex-wrap-nowrap.jpg">
+    </div>
+
+    <div class="step" data-x="4500" data-y="3000" data-rotate-y="90" data-z="-1500">
+        <p class="title">wrap</p>
+        <img src="images/flexbox/flexbox-flex-wrap-wrap.jpg">
+    </div>
+
+    <div class="step" data-x="4500" data-y="3000" data-rotate-y="90" data-z="-3000">
+        <p class="title">wrap-reverse</p>
+        <img src="images/flexbox/flexbox-flex-wrap-wrap-reverse.jpg">
+    </div>
+
+    <div class="step slide" data-x="4500" data-y="4000">
+        <p class="title">flex-flow</p>
+        <p>
+            Це скорочений варіант для одночасного зазначення <code>flex-direction</code> та <code>flex-wrap</code>.
+            За замовчуванням <code>row nowrap</code>.
+        </p>
+    </div>
+
+    <div class="step slide" data-x="4500" data-y="5000">
+        <p class="title">justify-content</p>
+        <img src="images/flexbox/justify-content.svg" style="max-height: 8em">
+        <ul>
+            <li>
+                <code>flex-start</code> (за замовчуванням) елементи розміщені на початку лінії
+            </li>
+            <li>
+                <code>flex-end</code> елементи розміщені у кінці лінії
+            </li>
+            <li>
+                <code>center</code> елементи розміщені по центру
+            </li>
+            <li>
+                <code>space-between</code> елементи рівномірно розподілені по лінії; перший елемент на початку, останній
+                в кінці
+            </li>
+            <li>
+                <code>space-around</code> елементи рівномірно розподілені по лінії із однаковими відступами по обидва
+                боки від елемента
+            </li>
+        </ul>
+    </div>
+
+    <div class="step" data-x="4500" data-y="5000" data-rotate-y="90">
+        <p class="title">flex-start</p>
+        <img src="images/flexbox/flexbox-justify-content-flex-start.jpg">
+    </div>
+
+    <div class="step" data-x="4500" data-y="5000" data-rotate-y="90" data-z="-1500">
+        <p class="title">flex-end</p>
+        <img src="images/flexbox/flexbox-justify-content-flex-end.jpg">
+    </div>
+
+    <div class="step" data-x="4500" data-y="5000" data-rotate-y="90" data-z="-3000">
+        <p class="title">center</p>
+        <img src="images/flexbox/flexbox-justify-content-center.jpg">
+    </div>
+
+    <div class="step" data-x="4500" data-y="5000" data-rotate-y="90" data-z="-4500">
+        <p class="title">space-between</p>
+        <img src="images/flexbox/flexbox-justify-content-space-between.jpg">
+    </div>
+
+    <div class="step" data-x="4500" data-y="5000" data-rotate-y="90" data-z="-6000">
+        <p class="title">space-around</p>
+        <img src="images/flexbox/flexbox-justify-content-space-around.jpg">
+    </div>
+
+    <div class="step slide" data-x="4500" data-y="6000">
+        <p class="title">align-items</p>
+        <img src="images/flexbox/align-items.svg" style="max-height: 8em">
+        <ul>
+            <li>
+                <code>stretch</code> (за замовчуванням) елементи заповнюють контейнер
+            </li>
+            <li>
+                <code>flex-start</code> елементи зміщені до початку
+            </li>
+            <li>
+                <code>flex-end</code> елементи зміщені до кінця
+            </li>
+            <li>
+                <code>center</code> елементи розміщені по центру
+            </li>
+            <li>
+                <code>baseline</code> елементи вирівняні відповідно до їх базису
+            </li>
+        </ul>
+    </div>
+
+    <div class="step" data-x="4500" data-y="6000" data-rotate-y="90">
+        <p class="title">stretch</p>
+        <img src="images/flexbox/flexbox-align-items-stretch.jpg">
+    </div>
+
+    <div class="step" data-x="4500" data-y="6000" data-rotate-y="90" data-z="-1500">
+        <p class="title">flex-start</p>
+        <img src="images/flexbox/flexbox-align-items-flex-start.jpg">
+    </div>
+
+    <div class="step" data-x="4500" data-y="6000" data-rotate-y="90" data-z="-3000">
+        <p class="title">flex-end</p>
+        <img src="images/flexbox/flexbox-align-items-flex-end.jpg">
+    </div>
+
+    <div class="step" data-x="4500" data-y="6000" data-rotate-y="90" data-z="-4500">
+        <p class="title">center</p>
+        <img src="images/flexbox/flexbox-align-items-center.jpg">
+    </div>
+
+    <div class="step" data-x="4500" data-y="6000" data-rotate-y="90" data-z="-6000">
+        <p class="title">baseline</p>
+        <img src="images/flexbox/flexbox-align-items-baseline.jpg">
+    </div>
+
+    <div class="step slide" data-x="4500" data-y="7000">
+        <p class="title">align-content</p>
+        <img src="images/flexbox/align-content.svg" style="max-height: 8em">
+        <ul>
+            <li>
+                <code>stretch</code> (за замовчуванням) лінії заповнюють контейнер
+            </li>
+            <li>
+                <code>flex-start</code> лінії зміщені до початку контейнеру
+            </li>
+            <li>
+                <code>flex-end</code> лінії зміщені до кінця контейнеру
+            </li>
+            <li>
+                <code>center</code> лінії розміщені по центру
+            </li>
+            <li>
+                <code>space-between</code> лінії рівномірно розподілені по контейнеру; перша на початку, остання в кінці
+            </li>
+            <li>
+                <code>space-around</code> лінії рівномірно розподілені по контейнеру із однаковими відступами із обох
+                боків
+            </li>
+        </ul>
+    </div>
+
+    <div class="step" data-x="4500" data-y="7000" data-rotate-y="90">
+        <p class="title">stretch</p>
+        <img src="images/flexbox/flexbox-align-content-stretch.jpg">
+    </div>
+
+    <div class="step" data-x="4500" data-y="7000" data-rotate-y="90" data-z="-1500">
+        <p class="title">flex-start</p>
+        <img src="images/flexbox/flexbox-align-content-flex-start.jpg">
+    </div>
+
+    <div class="step" data-x="4500" data-y="7000" data-rotate-y="90" data-z="-3000">
+        <p class="title">flex-end</p>
+        <img src="images/flexbox/flexbox-align-content-flex-end.jpg">
+    </div>
+
+    <div class="step" data-x="4500" data-y="7000" data-rotate-y="90" data-z="-4500">
+        <p class="title">center</p>
+        <img src="images/flexbox/flexbox-align-content-center.jpg">
+    </div>
+
+    <div class="step" data-x="4500" data-y="7000" data-rotate-y="90" data-z="-6000">
+        <p class="title">space-between</p>
+        <img src="images/flexbox/flexbox-align-content-space-between.jpg">
+    </div>
+
+    <div class="step" data-x="4500" data-y="7000" data-rotate-y="90" data-z="-7500">
+        <p class="title">space-around</p>
+        <img src="images/flexbox/flexbox-align-content-space-around.jpg">
+    </div>
+
+    <div class="step" data-x="6000">
+        <p>Властивості елементу</p>
+    </div>
+
+    <div class="step slide" data-x="6000" data-y="1000">
+        <p class="title">order</p>
+        <img src="images/flexbox/order.svg">
+    </div>
+
+    <div class="step slide" data-x="6000" data-y="2000">
+        <p class="title">flex-grow</p>
+        <img src="images/flexbox/flex-grow.svg">
+        <code style="display: block">
+            .item {<br>
+            &nbsp;&nbsp;flex-grow: &lt;number&gt;<br>
+            }
+        </code>
+        За замовчуванням <b>0</b><br>
+        Не може бути від'ємним
+    </div>
+
+    <div class="step slide" data-x="6000" data-y="3000">
+        <p class="title">flex-shrink</p>
+        <code style="display: block">
+            .item {<br>
+            &nbsp;&nbsp;flex-shrink: &lt;number&gt;<br>
+            }
+        </code>
+        За замовчуванням <b>1</b><br>
+        Не може бути від'ємним
+    </div>
+
+    <div class="step slide" data-x="6000" data-y="4000">
+        <p class="title">flex-basis</p>
+        <img src="images/flexbox/rel-vs-abs-flex.svg" style="max-height: 8em">
+        <code style="display: block">
+            .item {<br>
+            &nbsp;&nbsp;flex-basis: &lt;length&gt | auto;<br>
+            }
+        </code>
+        За замовчуванням <b>auto</b><br>
+        Якщо стоїть <b>0</b>, то flex-grow не враховується
+    </div>
+
+    <div class="step slide" data-x="6000" data-y="5000">
+        <p class="title">flex</p>
+        <p>Скорочення для <code>flex-grow</code>, <code>flex-shrink</code> і <code>flex-basis</code>.</p>
+        За замовчуванням <b>0 1 auto</b><br>
+    </div>
+
+    <div class="step slide" data-x="6000" data-y="6000">
+        <p class="title">align-self</p>
+        <img src="images/flexbox/align-self.svg" style="max-height: 8em">
+        <ul>
+            <li>
+                <code>auto</code> (за замовчуванням, якщо <b>є</b> контейнер) наслідувати контейнер
+            </li>
+            <li>
+                <code>stretch</code> (за замовчуванням, якщо <b>немає</b> контейнеру) елементи заповнюють контейнер
+            </li>
+            <li>
+                <code>flex-start</code> елементи зміщені до початку
+            </li>
+            <li>
+                <code>flex-end</code> елементи зміщені до кінця
+            </li>
+            <li>
+                <code>center</code> елементи розміщені по центру
+            </li>
+            <li>
+                <code>baseline</code> елементи вирівняні відповідно до їх базису
+            </li>
+        </ul>
+    </div>
+    <div class="step" data-x="7500">
+        <p class="title">Flexbos playground</p>
+        <a href="https://demos.scotch.io/visual-guide-to-css3-flexbox-flexbox-playground/demos/" target="_blank">
+            https://demos.scotch.io/visual-guide-to-css3-flexbox-flexbox-playground/demos
+        </a>
+    </div>
+
+    <div class="step" data-x="9000">
+        <p class="title">Практика</p>
+    </div>
+
+    <div class="step full" data-x="9000" data-y="1000">
+        <div class="container container__center">
+            <div class="item__top">Top</div>
+            <div class="item">Centered</div>
+            <div class="item__bottom">Bottom</div>
+        </div>
+    </div>
+
+    <div class="step" data-x="9000" data-y="1000" data-z="-5000">
+        <img class="full-width" src="images/flexbox/practice/aligning_items_html.png">
+    </div>
+
+    <div class="step" data-x="9000" data-y="1000" data-z="-10000">
+        <img class="full-width" src="images/flexbox/practice/aligning_items_css.png">
+    </div>
+
+    <div class="step full example" data-x="9000" data-y="2000">
+        <div class="container container__column">
+            <header>Header</header>
+            <main class="content">
+                <p>Content</p>
+                <img src="images/flexbox/practice/footer_html.png">
+            </main>
+            <footer>Footer</footer>
+        </div>
+    </div>
+
+    <div class="step" data-x="9000" data-y="2000" data-z="-5000">
+        <img class="full-width" src="images/flexbox/practice/footer_css.png">
+    </div>
+
+    <div class="step full example" data-x="9000" data-y="3000">
+        <div class="container container__start">
+            <img class="figure" src="images/flexbox/practice/kitten.jpg">
+            <div class="body">
+                <h3>Title</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac nisl quis massa vulputate
+                    adipiscing. Vivamus sit amet risus ligula. Nunc eu pulvinar augue.
+                </p>
+                <div class="container container__start smaller">
+                    <img class="figure" src="images/flexbox/practice/kitten.jpg">
+                    <p class="body">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                </div>
+                <div class="container container__start smaller">
+                    <img class="figure" src="images/flexbox/practice/kitten.jpg">
+                    <p class="body">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="step" data-x="9000" data-y="3000" data-z="-5000">
+        <img class="full-width" src="images/flexbox/practice/media_html.png">
+    </div>
+
+    <div class="step" data-x="9000" data-y="3000" data-z="-10000">
+        <img class="full-width" src="images/flexbox/practice/media_css.png">
+    </div>
+
+    <div class="step full example" data-x="9000" data-y="4000">
+        <div class="container container__column">
+            <header>Header</header>
+            <div class="container">
+                <aside>Navigation</aside>
+                <main>
+                    <h3>Content</h3>
+                    <img src="images/flexbox/practice/holy_grail_html.png">
+                </main>
+                <aside>Advertisements</aside>
+            </div>
+            <footer>Footer</footer>
+        </div>
+    </div>
+
+    <div class="step" data-x="9000" data-y="4000" data-z="-5000">
+        <img class="full-width" src="images/flexbox/practice/holy_grail_css.png">
+    </div>
+
+    <div class="step" data-x="10500">
+        <p class="title">Grid system</p>
+        <img class="full-width" src="images/flexbox/practice/bootstrap_grid.png">
+    </div>
+
+    <div class="step" data-x="10500" data-y="1000">
+        <p class="title">Basic grid</p>
+        <img class="full-width" src="images/flexbox/practice/basic_grid.png">
+    </div>
+
+    <div class="step" data-x="10500" data-y="2000">
+        <p class="title">Grid-ception</p>
+        <img class="full-width" src="images/flexbox/practice/grid_ception.png">
+    </div>
+
+    <div class="step" data-x="10500" data-y="3000">
+        <p class="title">Top-aligned</p>
+        <img class="full-width" src="images/flexbox/practice/top-aligned.png">
+    </div>
+
+    <div class="step" data-x="10500" data-y="4000">
+        <p class="title">Bottom-aligned</p>
+        <img class="full-width" src="images/flexbox/practice/bottom_aligned.png">
+    </div>
+
+    <div class="step" data-x="10500" data-y="5000">
+        <p class="title">Vertically-aligned</p>
+        <img class="full-width" src="images/flexbox/practice/vertically_aligned.png">
+    </div>
+
+    <div class="step" data-x="10500" data-y="6000">
+        <p class="title">Mixed vertically aligned</p>
+        <img class="full-width" src="images/flexbox/practice/mixed_vertical_aligment.png">
+    </div>
+
+    <div class="step" data-x="10500" data-y="7000">
+        <p class="title">HTML</p>
+        <img class="full-width" src="images/flexbox/practice/grid_html.png">
+    </div>
+
+    <div class="step" data-x="12000">
+        <p class="title">Flexbox Froggies</p>
+        <a href="http://flexboxfroggy.com" target="_blank">flexboxfroggy.com</a>
+    </div>
+
+    <div id="overview" class="step" data-x="5000" data-y="2500" data-scale="10">
+        Чи є у вас запитання?
+    </div>
+</div>
+
+<script type="text/javascript" src="js/impress.js"></script>
+<script>impress().init();</script>
+</body>
+</html>
