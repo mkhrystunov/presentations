@@ -230,3 +230,13 @@ code {
 .strike-through {
     text-decoration: line-through;
 }
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+.container__column {
+    flex-direction: column;
+}

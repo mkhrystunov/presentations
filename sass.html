@@ -1,0 +1,747 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="css/default.css"/>
+    <link rel="stylesheet" href="css/sass.css"/>
+    <link rel="stylesheet" href="css/highlight/default.css">
+    <title>SASS</title>
+</head>
+<body>
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified
+        version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<div id="impress">
+    <div class="step slide">
+        <q>SASS</q>
+        <p>Syntactically Awesome Style Sheets</p>
+    </div>
+
+    <div class="step" data-x="1500">
+        <p class="title">Встановлення і використання</p>
+        <a target="_blank" href="http://sass-lang.com/install">http://sass-lang.com/install</a>
+        <ul>
+            <li>Встановити ruby (<a target="_blank" href="http://rubyinstaller.org/">http://rubyinstaller.org/</a>)</li>
+            <li>Встановити Sass <code>`gem install sass`</code> або <code>`sudo gem install sass`</code></li>
+        </ul>
+    </div>
+
+    <div class="step" data-x="1500" data-y="1000">
+        <p class="title">Відслідковувати каталог</p>
+        <code>`sass --watch path/sass-directory`</code>
+    </div>
+
+    <div class="step" data-x="1500" data-y="2000">
+        <p class="title">Генерувати файли у визначеній папці</p>
+        <code>`sass --watch path/sass-directory:path/css-directory`</code>
+    </div>
+
+    <div class="step" data-x="1500" data-y="3000">
+        <p class="title">Відслідковувати окремий файл</p>
+        <code>`sass --watch path/sass-directory/styles.scss`</code>
+    </div>
+
+    <div class="step" data-x="1500" data-y="4000">
+        <img src="images/sass/compile.jpg">
+    </div>
+
+    <div class="step" data-x="3000">
+        <div class="container">
+            <pre class="container">
+                <code class="sass">
+/* SASS */
+.content
+    border: 1px solid red
+    color: black
+                </code>
+                <code class="sass">
+/* SCSS */
+.content {
+    border: 1px solid red;
+    color: black;
+}
+
+.border {
+    padding: 10px;
+    margin: 10px;
+}
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="step" data-x="3000" data-y="1000">
+        <h1>Змінні</h1>
+        <div class="container">
+            <pre class="container">
+                <code class="sass">
+$font-stack: Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+    font: 100% $font-stack;
+    color: $primary-color;
+}
+                </code>
+                <code class="css">
+body {
+    font: 100% Helvetica, sans-serif;
+    color: #333;
+}
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="step" data-x="3000" data-y="2000">
+        <h1>Nesting</h1>
+        <div class="container">
+            <pre class="container">
+                <code class="sass">
+nav {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li { display: inline-block; }
+}
+                </code>
+                <code class="css">
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+}
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="step" data-x="3000" data-y="3000">
+        <h1>Partials</h1>
+        <p>
+            Можна створювати часткові файли стилю, які містять маленькі частини CSS, і які потім можна включати до
+            інших sass-файлів.
+        </p>
+    </div>
+
+    <div class="step" data-x="3000" data-y="4000">
+        <h1>Імпортування</h1>
+        <div class="container">
+            <pre class="container">
+                <code class="sass">
+// _reset.scss
+* {
+  margin: 0;
+  padding: 0;
+}
+
+// base.scss
+@import 'reset';
+
+body {
+  font: 100% Helvetica, sans-serif;
+  background-color: #efefef;
+}
+                </code>
+                <code class="css">
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font: 100% Helvetica, sans-serif;
+  background-color: #efefef;
+}
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="step" data-x="3000" data-y="5000">
+        <h1>Extend/Inheritance</h1>
+        <div class="container">
+            <pre class="container">
+                <code class="sass">
+message {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+.success {
+  @extend .message;
+  border-color: green;
+}
+
+.error {
+  @extend .message;
+  border-color: red;
+}
+                </code>
+                <code class="css">
+.message, .success, .error, .warning {
+  border: 1px solid #cccccc;
+  padding: 10px;
+  color: #333;
+}
+
+.success {
+  border-color: green;
+}
+
+.error {
+  border-color: red;
+}
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="step" data-x="3000" data-y="6000">
+        <h1>Оператори</h1>
+        <div class="container">
+            <pre class="container">
+                <code class="sass">
+.container { width: 100%; }
+
+
+article[role="main"] {
+  float: left;
+  width: 600px / 960px * 100%;
+}
+
+aside[role="complementary"] {
+  float: right;
+  width: 300px / 960px * 100%;
+}
+                </code>
+                <code class="css">
+.container {
+  width: 100%;
+}
+
+article[role="main"] {
+  float: left;
+  width: 62.5%;
+}
+
+aside[role="complementary"] {
+  float: right;
+  width: 31.25%;
+}
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="step" data-x="3000" data-y="7000">
+        <h1>Батьківський селектор. &</h1>
+        <div class="container">
+            <pre class="container">
+                <code class="sass">
+a {
+  font-weight: bold;
+  text-decoration: none;
+  &:hover { text-decoration: underline; }
+  body.firefox & { font-weight: normal; }
+}
+                </code>
+                <code class="css">
+a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+body.firefox a {
+    font-weight: normal;
+}
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="step" data-x="3000" data-y="8000">
+        <h1>@at-root</h1>
+        <div class="container">
+            <pre class="container">
+                <code class="sass">
+.parent {
+  ...
+  @at-root {
+    .child1 { ... }
+    .child2 { ... }
+  }
+  .step-child { ... }
+}
+                </code>
+                <code class="css">
+.parent { ... }
+.child1 { ... }
+.child2 { ... }
+.parent .step-child { ... }
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="step" data-x="5000">
+        <h1>if()</h1>
+        <div class="container">
+            <pre class="container">
+                <code class="sass">
+if(true, 1px, 2px)
+if(false, 1px, 2px)
+                </code>
+                <code class="css">
+1px
+2px
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="step" data-x="5000" data-y="1000">
+        <h1>@if</h1>
+        <div class="container">
+            <pre class="container">
+                <code class="sass">
+$type: monster;
+p {
+  @if $type == ocean {
+    color: blue;
+  } @else if $type == matador {
+    color: red;
+  } @else if $type == monster {
+    color: green;
+  } @else {
+    color: black;
+  }
+}
+                </code>
+                <code class="css">
+p {
+  color: green;
+}
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="step" data-x="5000" data-y="2000">
+        <h1>@for</h1>
+        <div class="container">
+            <pre class="container">
+                <code class="sass">
+@for $i from 1 through 3 {
+  .item-#{$i} { width: 2em * $i; }
+}
+                </code>
+                <code class="css">
+.item-1 {
+  width: 2em;
+}
+.item-2 {
+  width: 4em;
+}
+.item-3 {
+  width: 6em;
+}
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="step" data-x="5000" data-y="3000">
+        <h1>@each</h1>
+        <div class="container">
+            <pre class="container">
+                <code class="sass">
+@each $animal in puma, sea-slug, egret, salamander {
+  .#{$animal}-icon {
+    background-image: url('/images/#{$animal}.png');
+  }
+}
+                </code>
+                <code class="css">
+.puma-icon {
+  background-image: url('/images/puma.png');
+}
+.sea-slug-icon {
+  background-image: url('/images/sea-slug.png');
+}
+.egret-icon {
+  background-image: url('/images/egret.png');
+}
+.salamander-icon {
+  background-image: url('/images/salamander.png');
+}
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="step" data-x="5000" data-y="4000">
+        <h1>@each</h1>
+        <div class="container">
+            <pre class="container">
+                <code class="sass">
+@each $animal, $color, $cursor in (puma, black, default),
+                                  (sea-slug, blue, pointer),
+                                  (egret, white, move) {
+  .#{$animal}-icon {
+    background-image: url('/images/#{$animal}.png');
+    border: 2px solid $color;
+    cursor: $cursor;
+  }
+}
+                </code>
+                <code class="css">
+.puma-icon {
+  background-image: url('/images/puma.png');
+  border: 2px solid black;
+  cursor: default;
+}
+.sea-slug-icon {
+  background-image: url('/images/sea-slug.png');
+  border: 2px solid blue;
+  cursor: pointer;
+}
+.egret-icon {
+  background-image: url('/images/egret.png');
+  border: 2px solid white;
+  cursor: move;
+}
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="step" data-x="5000" data-y="5000">
+        <h1>@each</h1>
+        <div class="container">
+            <pre class="container">
+                <code class="sass">
+@each $header, $size in (h1: 2em, h2: 1.5em, h3: 1.2em) {
+  #{$header} {
+    font-size: $size;
+  }
+}
+                </code>
+                <code class="css">
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-size: 1.2em;
+}
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="step" data-x="5000" data-y="6000">
+        <h1>@each</h1>
+        <div class="container">
+            <pre class="container">
+                <code class="sass">
+@each $header, $size in (h1: 2em, h2: 1.5em, h3: 1.2em) {
+  #{$header} {
+    font-size: $size;
+  }
+}
+                </code>
+                <code class="css">
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-size: 1.2em;
+}
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="step" data-x="5000" data-y="7000">
+        <h1>@while</h1>
+        <div class="container">
+            <pre class="container">
+                <code class="sass">
+$i: 6;
+@while $i > 0 {
+  .item-#{$i} { width: 2em * $i; }
+  $i: $i - 2;
+}
+                </code>
+                <code class="css">
+.item-6 {
+  width: 12em;
+}
+
+.item-4 {
+  width: 8em;
+}
+
+.item-2 {
+  width: 4em;
+}
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="step" data-x="5000" data-y="8000">
+        <h1>@mixin</h1>
+        <div class="container">
+            <pre class="container">
+                <code class="sass">
+@mixin large-text {
+  font: {
+    family: Arial;
+    size: 20px;
+    weight: bold;
+  }
+  color: #ff0000;
+}
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="step" data-x="5000" data-y="9000">
+        <h1>@include</h1>
+        <div class="container">
+            <pre class="container">
+                <code class="sass">
+.page-title {
+  @include large-text;
+  padding: 4px;
+  margin-top: 10px;
+}
+                </code>
+                <code class="css">
+.page-title {
+  font-family: Arial;
+  font-size: 20px;
+  font-weight: bold;
+  color: #ff0000;
+  padding: 4px;
+  margin-top: 10px;
+}
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="step" data-x="5000" data-y="10000">
+        <h1>@mixin with arguments</h1>
+        <div class="container">
+            <pre class="container">
+                <code class="sass">
+@mixin sexy-border($color, $width) {
+  border: {
+    color: $color;
+    width: $width;
+    style: dashed;
+  }
+}
+
+p { @include sexy-border(blue, 1in); }
+                </code>
+                <code class="css">
+p {
+  border-color: blue;
+  border-width: 1in;
+  border-style: dashed;
+}
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="step" data-x="5000" data-y="11000">
+        <h1>@mixin with arguments</h1>
+        <div class="container">
+            <pre class="container">
+                <code class="sass">
+@mixin box-shadow($shadows...) {
+  -moz-box-shadow: $shadows;
+  -webkit-box-shadow: $shadows;
+  box-shadow: $shadows;
+}
+
+.shadows {
+  @include box-shadow(0px 4px 5px #666, 2px 6px 10px #999);
+}
+                </code>
+                <code class="css">
+.shadows {
+  -moz-box-shadow: 0px 4px 5px #666, 2px 6px 10px #999;
+  -webkit-box-shadow: 0px 4px 5px #666, 2px 6px 10px #999;
+  box-shadow: 0px 4px 5px #666, 2px 6px 10px #999;
+}
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="step" data-x="5000" data-y="12000">
+        <h1>@content</h1>
+        <div class="container">
+            <pre class="container">
+                <code class="sass">
+@mixin apply-to-ie6-only {
+  * html {
+    @content;
+  }
+}
+@include apply-to-ie6-only {
+  #logo {
+    background-image: url(/logo.gif);
+  }
+}
+                </code>
+                <code class="css">
+* html #logo {
+  background-image: url(/logo.gif);
+}
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="step" data-x="5000" data-y="13000">
+        <h1>@function</h1>
+        <div class="container">
+            <pre class="container">
+                <code class="sass">
+$grid-width: 40px;
+$gutter-width: 10px;
+
+@function grid-width($n) {
+  @return $n * $grid-width + ($n - 1) * $gutter-width;
+}
+
+#sidebar { width: grid-width(5); }
+                </code>
+                <code class="css">
+#sidebar {
+  width: 240px;
+}
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="step" data-x="7000">
+        <h1>Output style :nested</h1>
+        <div class="container">
+            <pre class="container">
+                <code class="css">
+#main {
+  color: #fff;
+  background-color: #000; }
+  #main p {
+    width: 10em; }
+
+.huge {
+  font-size: 10em;
+  font-weight: bold;
+  text-decoration: underline; }
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="step" data-x="7000" data-y="1000">
+        <h1>Output style :expanded</h1>
+        <div class="container">
+            <pre class="container">
+                <code class="css">
+#main {
+  color: #fff;
+  background-color: #000;
+}
+#main p {
+  width: 10em;
+}
+
+.huge {
+  font-size: 10em;
+  font-weight: bold;
+  text-decoration: underline;
+}
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="step" data-x="7000" data-y="2000">
+        <h1>Output style :compact</h1>
+        <div class="container">
+            <pre class="container">
+                <code class="css">
+#main { color: #fff; background-color: #000; }
+#main p { width: 10em; }
+
+.huge { font-size: 10em; font-weight: bold; text-decoration: underline; }
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="step" data-x="7000" data-y="3000">
+        <h1>Output style :compressed</h1>
+        <div class="container">
+            <pre class="container">
+                <code class="css">
+#main{color:#fff;background-color:#000}#main p{width:10em}.huge{font-size:10em;font-weight:bold;text-decoration:underline}
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="step" data-x="9000">
+        <h1>What's next?</h1>
+        <ul>
+            <li>Документація SASS - <a target="_blank" href="http://sass-lang.com">http://sass-lang.com</a></li>
+            <li>Документація LESS - <a target="_blank" href="http://lesscss.org">http://lesscss.org</a></li>
+            <li>CSS-TRICKS - <a target="_blank" href="http://css-tricks.com">http://css-tricks.com</a></li>
+            <li>The SASS Way - <a target="_blank" href="http://thesassway.com">http://thesassway.com</a></li>
+        </ul>
+    </div>
+
+    <div id="overview" class="step" data-x="5000" data-y="2500" data-z="4000" data-scale="10">
+        Чи є у вас запитання?
+    </div>
+</div>
+
+<script type="text/javascript" src="js/impress.js"></script>
+<script>impress().init();</script>
+<script src="js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
