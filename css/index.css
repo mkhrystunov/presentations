@@ -18,13 +18,13 @@ footer.page-footer {
     height: 100%;
 }
 
-.carousel-item:nth-child(1) {
+.carousel-item:nth-child(odd) {
     background-image: url("../images/space.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.carousel-item:nth-child(2) {
+.carousel-item:nth-child(even) {
     background-image: url("../images/space-2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
