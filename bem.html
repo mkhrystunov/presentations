@@ -1,0 +1,400 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="css/default.css"/>
+    <link rel="stylesheet" href="css/bem.css"/>
+    <link rel="stylesheet" href="css/highlight/default.css">
+    <title>BEM</title>
+</head>
+<body>
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified
+        version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<div id="impress">
+    <div class="step slide">
+        <q>BEM</q>
+        <p>Block Element Modifier</p>
+    </div>
+
+    <div class="step" data-x="1500">
+        <p>
+            БЕМ (Блок, Елемент, Модифікатор) - компонентний підхід у веб-розробці. В його основі лежить
+            принцип розділення інтерфейсу на незалежні блоки. Він дозволяє легко і швидко розробляти
+            інтерфейси будь-якої важкості і повторно використати існуючий код, уникаючи "Copy-Paste".
+        </p>
+    </div>
+
+    <div class="step" data-x="3000">
+        <strong class="title">Блок</strong>
+        <p>
+            Функціонально незалежний компонент сторінки, який може бути повторно використаний.
+        </p>
+    </div>
+
+    <div class="step" data-x="3000" data-y="1000">
+        <strong>Особливості Блоків</strong>
+        <ul>
+            <li>
+                Назва блоку характеризує сенс ("що це?" - "меню": <code>menu</code>, "кнопка": <code>button</code>,
+                а не стан ("який, як виглядає?" - "червоний": <code>red</code>, "великий": <code>big</code>.
+            </li>
+        </ul>
+    </div>
+
+    <div class="step" data-x="3000" data-y="2000">
+        <strong>Особливості Блоків</strong>
+        <ul>
+            <li>
+                Блок не повинен впливати на своє оточення, тобто блоку не потрібно задавати зовнішню геометрію
+                (у вигляді відступів, кордонів, що впливають на розмір) і позиціонування.
+            </li>
+        </ul>
+    </div>
+
+    <div class="step" data-x="3000" data-y="3000">
+        <strong>Особливості Блоків</strong>
+        <ul>
+            <li>
+                В CSS по БЕМ також не рекомендується використовувати селектори по тегам чи <code>id</code>
+            </li>
+        </ul>
+    </div>
+
+    <div class="step" data-x="3000" data-y="4000">
+        <strong class="title">Принципи роботи із блоками</strong>
+        <ul>
+            <li>Блоки можна вкладувати один в одного</li>
+            <li>Допустима будь-яка вкладуваність блоків</li>
+        </ul>
+        <pre class="container">
+            <code>
+&lt;header class="header"&gt;
+    &lt;div class="logo"&gt;&lt;/div&gt;
+
+    &lt;form class="search-form"&gt;&lt;/form&gt;
+&lt;/header&gt;
+            </code>
+        </pre>
+    </div>
+
+    <div class="step" data-x="4500">
+        <strong class="title">Елемент</strong>
+        <p>Складова частина блоку, яка не можу використовуватися без нього.</p>
+    </div>
+
+    <div class="step" data-x="4500" data-y="1000">
+        <strong class="title">Особливості елементів</strong>
+        <ul>
+            <li>
+                Назва елементу характеризує сенс ("що це?" - "пункт": <code>item</code>, "текст": <code>text</code>),
+                а не стан ("який, як виглядає?" - "червоний": <code>red</code>, "великий": <code>big</code>)
+            </li>
+        </ul>
+    </div>
+
+    <div class="step" data-x="4500" data-y="2000">
+        <strong class="title">Особливості елементів</strong>
+        <ul>
+            <li>
+                Структура повного імені елементу відповідає схемі: <code>назва-блоку__назва-елементу</code>.
+                Назва елементу відділяється від назви блоку двома підкреслюваннями (<code>__</code>).
+            </li>
+        </ul>
+    </div>
+
+    <div class="step" data-x="4500" data-y="3000">
+        <strong class="title">Особливості елементів (наприклад)</strong>
+        <pre class="container">
+            <code>
+&lt;form class="search-form"&gt;
+    &lt;input class="search-form__input"&gt;
+    &lt;button class="search-form__button"&gt;Знайти&lt;/button&gt;
+&lt;/form&gt;
+            </code>
+        </pre>
+    </div>
+
+    <div class="step" data-x="4500" data-y="4000">
+        <strong class="title">Принципи роботи із елементами</strong>
+        <ul>
+            <li>Вкладеність</li>
+            <li>Належність</li>
+            <li>Необов'язковість</li>
+        </ul>
+    </div>
+
+    <div class="step" data-x="4500" data-y="5000">
+        <strong class="title">Принципи роботи із елементами (Вкладеність)</strong>
+        <ul>
+            <li>Елементи можна вкладувати один в одного</li>
+            <li>Допустима будь-яка владуваність елементів</li>
+            <li>
+                Елемент - завжди частина блоку, а не іншого елементу. Це означає, що в назві елементів не можна
+                прописувати ієрархію вигляду <code>block__elem1__elem2</code>.
+            </li>
+        </ul>
+    </div>
+
+    <div class="step" data-x="4500" data-y="6000">
+        <strong class="title">Принципи роботи із елементами (Вкладеність, приклад)</strong>
+        <pre class="container">
+            <code>
+&lt;form class="search-form"&gt;
+    &lt;div class="search-form__content"&gt;
+        &lt;input class="search-form__input"&gt;
+        &lt;button class="search-form__button"&gt;
+            Знайти
+        &lt;/button&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+            </code>
+        </pre>
+    </div>
+
+    <div class="step" data-x="4500" data-y="7000">
+        <strong class="title">Принципи роботи із елементами (Вкладеність, приклад)</strong>
+        <pre class="container">
+            <code>
+&lt;!-- Неправильно --&gt;
+&lt;form class="search-form"&gt;
+    &lt;div class="search-form__content"&gt;
+        &lt;input class="search-form__content__input"&gt;
+
+        &lt;button class="search-form__content__button"&gt;
+            Знайти
+        &lt;/button&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+            </code>
+        </pre>
+    </div>
+
+    <div class="step" data-x="4500" data-y="8000">
+        <strong class="title">Принципи роботи із елементами (Вкладеність)</strong>
+        <p>Структура блоку в CSS завжди однакова, в той час як в HTML може змінюватися</p>
+        <pre class="container">
+            <code>
+&lt;div class="block"&gt;
+    &lt;div class="block__elem1"&gt;
+        &lt;div class="block__elem2"&gt;
+            &lt;div class="block__elem3"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+            </code>
+            <code>
+.block {}
+.block__elem1 {}
+.block__elem2 {}
+.block__elem3 {}
+            </code>
+        </pre>
+    </div>
+
+    <div class="step" data-x="4500" data-y="9000">
+        <strong class="title">Принципи роботи із елементами (Належність)</strong>
+        <p>Елемент - завжди частина блоку і не повинен використовуватися окремо від нього.</p>
+    </div>
+
+    <div class="step" data-x="4500" data-y="10000">
+        <strong class="title">Принципи роботи із елементами (Належність, приклад)</strong>
+        <pre class="container">
+            <code>
+&lt;form class="search-form"&gt;
+    &lt;input class="search-form__input"&gt;
+
+    &lt;button class="search-form__button"&gt;
+        Знайти
+    &lt;/button&gt;
+&lt;/form&gt;
+            </code>
+        </pre>
+    </div>
+
+    <div class="step" data-x="4500" data-y="11000">
+        <strong class="title">Принципи роботи із елементами (Належність, приклад)</strong>
+        <pre class="container">
+            <code>
+&lt;!-- Неправильно --&gt;
+&lt;form class="search-form"&gt;
+&lt;/form&gt;
+&lt;input class="search-form__input"&gt;
+
+&lt;button class="search-form__button"&gt;Знайти&lt;/button&gt;
+            </code>
+        </pre>
+    </div>
+
+    <div class="step" data-x="4500" data-y="12000">
+        <strong class="title">Принципи роботи із елементами (Необов'язковість)</strong>
+        <p>Елемент - необов'язковий компонент блоку. Не у всіх блоків повинні бути елементи.</p>
+    </div>
+
+    <div class="step" data-x="4500" data-y="13000">
+        <strong class="title">Принципи роботи із елементами (Необов'язковість, приклад)</strong>
+        <pre class="container">
+            <code>
+&lt;div class="search-form"&gt;
+    &lt;input class="input"&gt;
+
+    &lt;button class="button"&gt;Найти&lt;/button&gt;
+&lt;/div&gt;
+            </code>
+        </pre>
+    </div>
+
+    <div class="step" data-x="6000">
+        <strong class="title">Коли створювати блок, а коли елемент?</strong>
+        <ol>
+            <li>
+                Якщо фрагмент коду може бути використаний повторно і не залежить від реалізації інших
+                компонентів сторінки, необхідно створювати блок.
+            </li>
+            <li>
+                Якщо фрагмент коду не може використовуватися самостійно, без батьківської сутності (блоку),
+                в більшості випадків створюється елемент.
+            </li>
+        </ol>
+    </div>
+
+    <div class="step" data-x="7500">
+        <strong class="title">Модифікатор</strong>
+        <p>Сутність, що визначає зовнішній вигляд, стан або поведілку блоку чи елементу</p>
+    </div>
+
+    <div class="step" data-x="7500" data-y="1000">
+        <strong class="title">Особливості модифікаторів</strong>
+        <ul>
+            <li>
+                Назва модифікатору характеризує зовнішній вигляд ("який розмір?", "яка тема?" і т.п. -
+                "розмір": <code>size_s</code>, "тема": <code>theme_islands</code>), стан ("чим відрізняється від
+                інших?" - "відключений": <code>disabled</code>, "сфокусований": <code>focused</code>) і поведінку
+                ("як себе веде?", "як взаємодіє із користувачем?" - "напрямок": <code>directions_left-top</code>.
+            </li>
+        </ul>
+    </div>
+
+    <div class="step" data-x="7500" data-y="2000">
+        <strong class="title">Особливості модифікаторів</strong>
+        <ul>
+            <li>
+                Ім'я модифікатору відділяється від імені блоку або елементу одним підресленням (<code>_</code>).
+            </li>
+        </ul>
+    </div>
+
+    <div class="step" data-x="7500" data-y="3000">
+        <strong class="title">Типи модифікаторів (Булевий)</strong>
+        <ul>
+            <li>
+                Використовується, коли важлива лише наявність або відсутність модифікатору, а його значення несуттєве.
+                Наприклад, "відключений": <code>disabled</code>. Вважається, що за наявності булевого модифікатору його
+                значення <code>true</code>.
+                <ul>
+                    <li><code>назва-блоку_назва-модифікатору</code></li>
+                    <li><code>назва-блоку__назва-елементу_назва-модифікатору</code></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="step" data-x="7500" data-y="4000">
+        <strong class="title">Типи модифікаторів (Ключ-значення)</strong>
+        <ul>
+            <li>
+                Використовується, коли важливе значення модифікатору. Наприклад,
+                "меню із темою оформлення <code>islands</code>": <code>menu_theme_islands</code>
+                <ul>
+                    <li><code>назва-блоку_назва-модифікатору_значення-модифікатору</code></li>
+                    <li><code>назва-блоку__назва-елементу_назва-модифікатору_значення-модифікатору</code></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="step" data-x="7500" data-y="5000">
+        <strong class="title">Типи модифікаторів (Ключ-значення, приклад)</strong>
+        <pre class="container">
+            <code>
+&lt;form class="search-form search-form_theme_islands"&gt;
+    &lt;input class="search-form__input"&gt;
+
+    &lt;button class="search-form__button search-form__button_size_m"&gt;
+        Знайти
+    &lt;/button&gt;
+&lt;/form&gt;
+            </code>
+        </pre>
+    </div>
+
+    <div class="step" data-x="7500" data-y="6000">
+        <strong class="title">Типи модифікаторів (Ключ-значення, приклад)</strong>
+        <pre class="container">
+            <code>
+&lt;!-- Неправильно --&gt;
+&lt;form class="search-form
+             search-form_theme_islands
+             search-form_theme_lite"&gt;
+
+    &lt;input class="search-form__input"&gt;
+
+    &lt;button class="search-form__button
+                   search-form__button_size_s
+                   search-form__button_size_m"&gt;
+        Найти
+    &lt;/button&gt;
+&lt;/form&gt;
+            </code>
+        </pre>
+    </div>
+
+    <div class="step" data-x="7500" data-y="7000">
+        <strong class="title">Принципи роботи із модифікаторами</strong>
+        <p>
+            З точки зору БЕМ модифікатор не може використовуватися відірваним від модифікованого блоку чи елементу.
+            Він повинен змінювати вигляд, поведінку чи стан сутності, а не замінювати її.
+        </p>
+    </div>
+
+    <div class="step" data-x="9000">
+        <strong class="title">Мікс</strong>
+        <p>
+            Прийом, що дозволяє використовувати різні БЕМ-сутності на одному DOM-вузлі.
+        </p>
+        <div>
+            Мікси дозволяють:
+            <ul>
+                <li>зуміщувати поведінку і стилі декількох сутностей без дублювання коду</li>
+                <li>створювати семантично нові компоненти інтерфейсу на основі вже існуючих</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="step" data-x="9000" data-y="1000">
+        <strong class="title">Мікс (приклад)</strong>
+        <pre class="container">
+            <code>
+&lt;div class="header"&gt;
+    &lt;div class="search-form header__search-form"&gt;&lt;/div&gt;
+&lt;/div&gt;
+            </code>
+        </pre>
+    </div>
+
+    <div id="overview" class="step" data-x="5000" data-y="2500" data-z="4000" data-scale="10">
+        Чи є у вас запитання?
+    </div>
+</div>
+
+<script type="text/javascript" src="js/impress.js"></script>
+<script>impress().init();</script>
+<script src="js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

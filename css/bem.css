@@ -1,0 +1,7 @@
+code {
+    font-size: 30px;
+}
+
+pre > code {
+    font-size: 25px;
+}
