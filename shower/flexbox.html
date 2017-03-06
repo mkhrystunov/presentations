@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Shower Presentation Engine</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
+  <link rel="stylesheet" href="css/flexbox.css">
+  <style>
+    img {
+      max-width: 100%;
+      max-height: 50%;
+    }
+  </style>
+</head>
+<body class="shower">
+<section class="slide">
+  <h2>Flexbox</h2>
+</section>
+
+<section class="slide">
+  <img src="../images/flexbox/css_is_awesome.png">
+</section>
+
+<section class="slide">
+  <p>
+    <code>Flexbox Layout</code> (Flexible Box) призначено для більш ефективної роботи із вирівнювання,
+    розміщення та розподілу простору між елементами в контейнері, навіть якщо їх розмір невідомий або динамічний
+  </p>
+</section>
+
+<section class="slide">
+  <p>
+    Головна ідея — надати контейнеру можливість змінювати свою висоту, ширину (і порядок) аби якнайкраще
+    заповнити доступне місце. Гнучкі контейнери розширюють свої елементи щоб заповнити вільне місце, або
+    стискають, щоб запобігти переповненню.
+  </p>
+</section>
+
+<section class="slide">
+  <p>Властивості контейнеру (батьківського елементу)</p>
+</section>
+
+<section class="slide">
+  <h2>display</h2>
+  <code>
+    .container {<br>
+    &nbsp;&nbsp;display: flex;<br>
+    }
+  </code>
+</section>
+
+<section class="slide">
+  <h2>flex-direction</h2>
+  <img src="../images/flexbox/flex-direction.svg">
+  <ul>
+    <li>
+      <code>row</code> (за замовчуванням) зліва направо
+    </li>
+    <li>
+      <code>row-reverse</code> зправа наліво
+    </li>
+    <li>
+      <code>column</code> згори донизу
+    </li>
+    <li>
+      <code>column-reverse</code> знизу догори
+    </li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>row</h2>
+  <img src="../images/flexbox/flexbox-flex-direction-row.jpg">
+</section>
+
+<section class="slide">
+  <h2>row-reverse</h2>
+  <img src="../images/flexbox/flexbox-flex-direction-row-reverse.jpg">
+</section>
+
+<section class="slide">
+  <h2>column</h2>
+  <img src="../images/flexbox/flexbox-flex-direction-column.jpg">
+</section>
+
+<section class="slide">
+  <h2>column-reverse</h2>
+  <img src="../images/flexbox/flexbox-flex-direction-column-reverse.jpg">
+</section>
+
+<section class="slide">
+  <h2>flex-wrap</h2>
+  <img src="../images/flexbox/flex-wrap.svg">
+  <ul>
+    <li>
+      <code>nowrap</code> (за замовчуванням) в одну лінію
+    </li>
+    <li>
+      <code>wrap</code> в декілька ліній
+    </li>
+    <li>
+      <code>wrap-reverse</code> в декілька ліній у зворотньому порядку
+    </li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>nowrap</h2>
+  <img src="../images/flexbox/flexbox-flex-wrap-nowrap.jpg">
+</section>
+
+<section class="slide">
+  <h2>wrap</h2>
+  <img src="../images/flexbox/flexbox-flex-wrap-wrap.jpg">
+</section>
+
+<section class="slide">
+  <h2>wrap-reverse</h2>
+  <img src="../images/flexbox/flexbox-flex-wrap-wrap-reverse.jpg">
+</section>
+
+<section class="slide">
+  <h2>flex-flow</h2>
+  <p>
+    Це скорочений варіант для одночасного зазначення <code>flex-direction</code> та <code>flex-wrap</code>.
+    За замовчуванням <code>row nowrap</code>.
+  </p>
+</section>
+
+<section class="slide">
+  <h2>justify-content</h2>
+  <img src="../images/flexbox/justify-content.svg" style="max-height: 5em">
+  <ul>
+    <li>
+      <code>flex-start</code> (за замовчуванням) елементи розміщені на початку лінії
+    </li>
+    <li>
+      <code>flex-end</code> елементи розміщені у кінці лінії
+    </li>
+    <li>
+      <code>center</code> елементи розміщені по центру
+    </li>
+    <li>
+      <code>space-between</code> елементи рівномірно розподілені по лінії
+    </li>
+    <li>
+      <code>space-around</code> елементи рівномірно розподілені по лінії із однаковими відступами
+    </li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>flex-start</h2>
+  <img src="../images/flexbox/flexbox-justify-content-flex-start.jpg">
+</section>
+
+<section class="slide">
+  <h2>flex-end</h2>
+  <img src="../images/flexbox/flexbox-justify-content-flex-end.jpg">
+</section>
+
+<section class="slide">
+  <h2>center</h2>
+  <img src="../images/flexbox/flexbox-justify-content-center.jpg">
+</section>
+
+<section class="slide">
+  <h2>space-between</h2>
+  <img src="../images/flexbox/flexbox-justify-content-space-between.jpg">
+</section>
+
+<section class="slide">
+  <h2>space-around</h2>
+  <img src="../images/flexbox/flexbox-justify-content-space-around.jpg">
+</section>
+
+<section class="slide">
+  <h2>align-items</h2>
+  <img src="../images/flexbox/align-items.svg" style="max-height: 5em">
+  <ul>
+    <li>
+      <code>stretch</code> (за замовчуванням) елементи заповнюють контейнер
+    </li>
+    <li>
+      <code>flex-start</code> елементи зміщені до початку
+    </li>
+    <li>
+      <code>flex-end</code> елементи зміщені до кінця
+    </li>
+    <li>
+      <code>center</code> елементи розміщені по центру
+    </li>
+    <li>
+      <code>baseline</code> елементи вирівняні відповідно до їх базису
+    </li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>stretch</h2>
+  <img src="../images/flexbox/flexbox-align-items-stretch.jpg">
+</section>
+
+<section class="slide">
+  <h2>flex-start</h2>
+  <img src="../images/flexbox/flexbox-align-items-flex-start.jpg">
+</section>
+
+<section class="slide">
+  <h2>flex-end</h2>
+  <img src="../images/flexbox/flexbox-align-items-flex-end.jpg">
+</section>
+
+<section class="slide">
+  <h2>center</h2>
+  <img src="../images/flexbox/flexbox-align-items-center.jpg">
+</section>
+
+<section class="slide">
+  <h2>baseline</h2>
+  <img src="../images/flexbox/flexbox-align-items-baseline.jpg">
+</section>
+
+<section class="slide">
+  <h2>align-content</h2>
+  <img src="../images/flexbox/align-content.svg" style="max-height: 5em">
+  <ul>
+    <li>
+      <code>stretch</code> (за замовчуванням) лінії заповнюють контейнер
+    </li>
+    <li>
+      <code>flex-start</code> лінії зміщені до початку контейнеру
+    </li>
+    <li>
+      <code>flex-end</code> лінії зміщені до кінця контейнеру
+    </li>
+    <li>
+      <code>center</code> лінії розміщені по центру
+    </li>
+    <li>
+      <code>space-between</code> лінії рівномірно розподілені по контейнеру; перша на початку, остання в кінці
+    </li>
+    <li>
+      <code>space-around</code> лінії рівномірно розподілені по контейнеру із однаковими відступами із обох
+      боків
+    </li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>stretch</h2>
+  <img src="../images/flexbox/flexbox-align-content-stretch.jpg">
+</section>
+
+<section class="slide">
+  <h2>flex-start</h2>
+  <img src="../images/flexbox/flexbox-align-content-flex-start.jpg">
+</section>
+
+<section class="slide">
+  <h2>flex-end</h2>
+  <img src="../images/flexbox/flexbox-align-content-flex-end.jpg">
+</section>
+
+<section class="slide">
+  <h2>center</h2>
+  <img src="../images/flexbox/flexbox-align-content-center.jpg">
+</section>
+
+<section class="slide">
+  <h2>space-between</h2>
+  <img src="../images/flexbox/flexbox-align-content-space-between.jpg">
+</section>
+
+<section class="slide">
+  <h2>space-around</h2>
+  <img src="../images/flexbox/flexbox-align-content-space-around.jpg">
+</section>
+
+<section class="slide">
+  <h2>Властивості елементу</h2>
+</section>
+
+<section class="slide">
+  <h2>order</h2>
+  <img src="../images/flexbox/order.svg">
+</section>
+
+<section class="slide">
+  <h2>flex-grow</h2>
+  <img src="../images/flexbox/flex-grow.svg">
+  <code style="display: block">
+    .item {<br>
+    &nbsp;&nbsp;flex-grow: &lt;number&gt;<br>
+    }
+  </code>
+  За замовчуванням <b>0</b><br>
+  Не може бути від'ємним
+</section>
+
+<section class="slide">
+  <h2>flex-shrink</h2>
+  <code style="display: block">
+    .item {<br>
+    &nbsp;&nbsp;flex-shrink: &lt;number&gt;<br>
+    }
+  </code>
+  За замовчуванням <b>1</b><br>
+  Не може бути від'ємним
+</section>
+
+<section class="slide">
+  <h2>flex-basis</h2>
+  <img src="../images/flexbox/rel-vs-abs-flex.svg" style="max-height: 8em">
+  <code style="display: block">
+    .item {<br>
+    &nbsp;&nbsp;flex-basis: &lt;length&gt | auto;<br>
+    }
+  </code>
+  За замовчуванням <b>auto</b><br>
+  Якщо стоїть <b>0</b>, то flex-grow не враховується
+</section>
+
+<section class="slide">
+  <h2>flex</h2>
+  <p>Скорочення для <code>flex-grow</code>, <code>flex-shrink</code> і <code>flex-basis</code>.</p>
+  За замовчуванням <b>0 1 auto</b><br>
+</section>
+
+<section class="slide">
+  <h2>align-self</h2>
+  <img src="../images/flexbox/align-self.svg" style="max-height: 5em">
+  <ul>
+    <li>
+      <code>auto</code> (за замовчуванням, якщо <b>є</b> контейнер) наслідувати контейнер
+    </li>
+    <li>
+      <code>stretch</code> (за замовчуванням, якщо <b>немає</b> контейнеру) елементи заповнюють контейнер
+    </li>
+    <li>
+      <code>flex-start</code> елементи зміщені до початку
+    </li>
+    <li>
+      <code>flex-end</code> елементи зміщені до кінця
+    </li>
+    <li>
+      <code>center</code> елементи розміщені по центру
+    </li>
+    <li>
+      <code>baseline</code> елементи вирівняні відповідно до їх базису
+    </li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>Flexbox playground</h2>
+  <a href="https://demos.scotch.io/visual-guide-to-css3-flexbox-flexbox-playground/demos/" target="_blank">
+    https://demos.scotch.io/visual-guide-to-css3-flexbox-flexbox-playground/demos
+  </a>
+</section>
+
+<section class="slide">
+  <h2>Практика</h2>
+</section>
+
+<section class="slide full">
+  <div class="container container__center">
+    <div class="item__top">Top</div>
+    <div class="item">Centered</div>
+    <div class="item__bottom">Bottom</div>
+  </div>
+</section>
+
+<section class="slide">
+  <img class="full-width" src="../images/flexbox/practice/aligning_items_html.png">
+</section>
+
+<section class="slide">
+  <img class="full-width" src="../images/flexbox/practice/aligning_items_css.png">
+</section>
+
+<section class="slide" id="example-1">
+  <div class="container container__column">
+    <div class="header">Header</div>
+    <div class="content">
+      <p>Content</p>
+      <img src="../images/flexbox/practice/footer_html.png">
+    </div>
+    <div class="footer">Footer</div>
+  </div>
+</section>
+
+<section class="slide">
+  <img class="full-width" src="../images/flexbox/practice/footer_css.png">
+</section>
+
+<section class="slide example">
+  <div class="container container__start">
+    <img class="figure" src="../images/flexbox/practice/kitten.jpg">
+    <div class="body">
+      <h3>Title</h3>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac nisl quis massa vulputate
+        adipiscing. Vivamus sit amet risus ligula. Nunc eu pulvinar augue.
+      </p>
+      <div class="container container__start smaller">
+        <img class="figure" src="../images/flexbox/practice/kitten.jpg">
+        <p class="body">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+      </div>
+      <div class="container container__start smaller">
+        <img class="figure" src="../images/flexbox/practice/kitten.jpg">
+        <p class="body">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <img class="full-width" src="../images/flexbox/practice/media_html.png">
+</section>
+
+<section class="slide">
+  <img class="full-width" src="../images/flexbox/practice/media_css.png">
+</section>
+
+<section class="slide example" id="example-2">
+  <div class="container container__column">
+    <header>Header</header>
+    <div class="container">
+      <aside>Navigation</aside>
+      <main>
+        <h3>Content</h3>
+        <img src="../images/flexbox/practice/holy_grail_html.png">
+      </main>
+      <aside>Advertisements</aside>
+    </div>
+    <div class="footer">Footer</div>
+  </div>
+</section>
+
+<section class="slide">
+  <img class="full-width" src="../images/flexbox/practice/holy_grail_css.png">
+</section>
+
+<section class="slide">
+  <h2>Grid system</h2>
+  <img class="full-width" src="../images/flexbox/practice/bootstrap_grid.png">
+</section>
+
+<section class="slide">
+  <h2>Basic grid</h2>
+  <img class="full-width" src="../images/flexbox/practice/basic_grid.png">
+</section>
+
+<section class="slide">
+  <h2>Grid-ception</h2>
+  <img class="full-width" src="../images/flexbox/practice/grid_ception.png">
+</section>
+
+<section class="slide">
+  <h2>Top-aligned</h2>
+  <img class="full-width" src="../images/flexbox/practice/top-aligned.png">
+</section>
+
+<section class="slide">
+  <h2>Bottom-aligned</h2>
+  <img class="full-width" src="../images/flexbox/practice/bottom_aligned.png">
+</section>
+
+<section class="slide">
+  <h2>Vertically-aligned</h2>
+  <img class="full-width" src="../images/flexbox/practice/vertically_aligned.png">
+</section>
+
+<section class="slide">
+  <h2>Mixed vertically aligned</h2>
+  <img class="full-width" src="../images/flexbox/practice/mixed_vertical_aligment.png">
+</section>
+
+<section class="slide">
+  <h2>HTML</h2>
+  <img class="full-width" src="../images/flexbox/practice/grid_html.png">
+</section>
+
+<section class="slide">
+  <h2>Flexbox Froggies</h2>
+  <a href="http://flexboxfroggy.com" target="_blank">flexboxfroggy.com</a>
+</section>
+
+<section class="slide">
+  Запитання?
+</section>
+<!--
+  To hide progress bar from entire presentation
+  just remove “progress” element.
+  -->
+<div class="progress"></div>
+<script src="shower/shower.min.js"></script>
+<!-- Copyright © 2015 Yours Truly, Famous Inc. -->
+<!-- Photos by John Carey, fiftyfootshadows.net -->
+</body>
+</html>
