@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Shower Presentation Engine</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
+  <style>
+    img {
+      max-width: 100%;
+      max-height: 50%;
+    }
+  </style>
+</head>
+<body class="shower">
+<section class="slide">
+  <h2>SASS</h2>
+  <p>Syntactically Awesome Style Sheets</p>
+</section>
+
+<section class="slide">
+  <h2>Встановлення і використання</h2>
+  <a target="_blank" href="https://www.npmjs.com/package/gulp-sass">https://www.npmjs.com/package/gulp-sass</a>
+  <ul>
+    <li>Встановити node (<a target="_blank" href="https://nodejs.org/">https://nodejs.org/</a>)</li>
+    <li>Встановити Gulp-Sass <code>`npm install gulp-sass`</code></li>
+  </ul>
+</section>
+
+<section class="slide">
+  <img src="../images/sass/compile.jpg">
+</section>
+
+<section class="slide">
+  <h2>SASS VS SCSS</h2>
+  <ul class="double">
+    <li class="container">
+      <pre>
+<code>/* SASS */</code>
+<code>.content</code>
+<code>  border: 1px solid red</code>
+<code>  color: black</code>
+      </pre>
+    </li>
+    <li>
+      <pre>
+<code>/* SCSS */</code>
+<code>.content {</code>
+<code>    border: 1px solid red;</code>
+<code>    color: black;</code>
+<code>}</code>
+      </pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>Змінні</h2>
+  <pre>
+                <code class="sass">
+$font-stack: Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+    font: 100% $font-stack;
+    color: $primary-color;
+}
+                </code>
+      </pre>
+</section>
+
+<section class="slide">
+  <h2>Nesting</h2>
+  <pre>
+                <code>
+nav {
+  ul {
+    list-style: none;
+  }
+
+  li { display: inline-block; }
+}
+                </code>
+  </pre>
+</section>
+
+<section class="slide">
+  <h2>Partials</h2>
+  <p>
+    Можна створювати часткові файли стилю, які містять маленькі частини CSS, і які потім можна включати до
+    інших sass-файлів.
+  </p>
+</section>
+
+<section class="slide">
+  <h2>Імпортування</h2>
+  <pre><code class="sass">// _reset.scss
+* {
+  margin: 0;
+}
+// base.scss
+@import 'reset';
+body {
+  font: 100% Helvetica, sans-serif;
+}
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>Extend/Inheritance</h2>
+  <pre><code class="sass">.message {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+.success {
+  @extend .message;
+  border-color: green;
+}
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>Оператори</h2>
+  <pre><code class="sass">.container { width: 100%; }
+article[role="main"] {
+  float: left;
+  width: 600px / 960px * 100%;
+}
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>Батьківський селектор. &</h2>
+  <pre><code class="sass">a {
+  font-weight: bold;
+  text-decoration: none;
+  &:hover { text-decoration: underline; }
+  body.firefox & { font-weight: normal; }
+}
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>@at-root</h2>
+  <pre><code class="sass">.parent {
+  ...
+  @at-root {
+    .child1 { ... }
+    .child2 { ... }
+  }
+  .step-child { ... }
+}
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>if()</h2>
+  <pre class="container"><code class="sass">
+if(true, 1px, 2px)
+if(false, 1px, 2px)
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>@if</h2>
+  <pre><code class="sass">$type: monster;
+p {
+  @if $type == ocean {
+    color: blue;
+  } @else if $type == monster {
+    color: green;
+  } @else {
+    color: black;
+  }
+}
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>@for</h2>
+  <pre><code class="sass">@for $i from 1 through 3 {
+  .item-#{$i} { width: 2em * $i; }
+}
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>@each</h2>
+  <pre class="container"><code class="sass">@each $animal in puma, sea-slug, egret, salamander {
+  .#{$animal}-icon {
+    background-image: url('/images/#{$animal}.png');
+  }
+}
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>@each</h2>
+  <pre><code class="sass">@each $animal, $color, $cursor in (puma, black, default),
+                                  (sea-slug, blue, pointer),
+                                  (egret, white, move) {
+  .#{$animal}-icon {
+    background-image: url('/images/#{$animal}.png');
+    border: 2px solid $color;
+    cursor: $cursor;
+  }
+}
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>@each</h2>
+  <pre><code class="sass">@each $header, $size in (h1: 2em, h2: 1.5em, h3: 1.2em) {
+  #{$header} {
+    font-size: $size;
+  }
+}
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>@while</h2>
+  <pre><code class="sass">$i: 6;@while $i > 0 {
+  .item-#{$i} { width: 2em * $i; }
+  $i: $i - 2;
+}
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>@mixin</h2>
+  <pre><code class="sass">@mixin large-text {
+  font: {
+    family: Arial;
+    size: 20px;
+    weight: bold;
+  }
+  color: #ff0000;
+}
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>@include</h2>
+  <pre><code class="sass">.page-title {
+  @include large-text;
+  padding: 4px;
+  margin-top: 10px;
+}
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>@mixin with arguments</h2>
+  <pre><code class="sass">@mixin sexy-border($color, $width) {
+  border: {
+    color: $color;
+    width: $width;
+    style: dashed;
+  }
+}
+p { @include sexy-border(blue, 1in); }
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>@mixin with arguments</h2>
+  <pre><code class="sass">@mixin box-shadow($shadows...) {
+  -moz-box-shadow: $shadows;
+  -webkit-box-shadow: $shadows;
+  box-shadow: $shadows;
+}
+.shadows {
+  @include box-shadow(0px 4px 5px #666, 2px 6px 10px #999);
+}
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>@content</h2>
+  <pre><code class="sass">@mixin apply-to-ie6-only {
+  * html {
+    @content;
+  }
+}
+@include apply-to-ie6-only {
+  #logo {
+    background-image: url(/logo.gif);
+  }
+}
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>@function</h2>
+  <pre><code class="sass">$grid-width: 40px;
+$gutter-width: 10px;
+
+@function grid-width($n) {
+  @return $n * $grid-width + ($n - 1) * $gutter-width;
+}
+
+#sidebar { width: grid-width(5); }
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>Output style :nested</h2>
+  <pre><code class="css">#main {
+  color: #fff;
+  background-color: #000; }
+  #main p {
+    width: 10em; }
+
+.huge {
+  font-size: 10em;
+  font-weight: bold;
+  text-decoration: underline; }
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>Output style :expanded</h2>
+  <pre><code class="css">#main {
+  color: #fff;
+  background-color: #000;
+}
+#main p {
+  width: 10em;
+}
+
+.huge {
+  font-size: 10em;
+  font-weight: bold;
+  text-decoration: underline;
+}
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>Output style :compact</h2>
+  <pre><code class="css">#main { color: #fff; background-color: #000; }
+#main p { width: 10em; }
+
+.huge { font-size: 10em; font-weight: bold; text-decoration: underline; }
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>Output style :compressed</h2>
+  <pre><code class="css">
+#main{color:#fff;background-color:#000}#main p{width:10em}.huge{font-size:10em;font-weight:bold;text-decoration:underline}
+  </code></pre>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>What's next?</h2>
+  <ul>
+    <li>Документація SASS - <a target="_blank" href="http://sass-lang.com">http://sass-lang.com</a></li>
+    <li>Документація LESS - <a target="_blank" href="http://lesscss.org">http://lesscss.org</a></li>
+    <li>CSS-TRICKS - <a target="_blank" href="http://css-tricks.com">http://css-tricks.com</a></li>
+    <li>The SASS Way - <a target="_blank" href="http://thesassway.com">http://thesassway.com</a></li>
+  </ul>
+</section>
+
+<section class="slide">
+  Чи є у вас запитання?
+</section>
+<!--
+  To hide progress bar from entire presentation
+  just remove “progress” element.
+  -->
+<div class="progress"></div>
+<script src="shower/shower.min.js"></script>
+<!-- Copyright © 2015 Yours Truly, Famous Inc. -->
+<!-- Photos by John Carey, fiftyfootshadows.net -->
+</body>
+</html>
