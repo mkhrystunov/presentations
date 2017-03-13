@@ -13,7 +13,7 @@
     }
   </style>
 </head>
-<body class="shower">
+<body class="shower full">
 <section class="slide">
   <h2>SASS</h2>
   <p>Syntactically Awesome Style Sheets</p>
@@ -25,6 +25,7 @@
   <ul>
     <li>Встановити node (<a target="_blank" href="https://nodejs.org/">https://nodejs.org/</a>)</li>
     <li>Встановити Gulp-Sass <code>`npm install gulp-sass`</code></li>
+    <li>Online compiler - <a target="_blank" href="http://www.sassmeister.com/">http://www.sassmeister.com/</a></li>
   </ul>
 </section>
 
@@ -36,21 +37,18 @@
   <h2>SASS VS SCSS</h2>
   <ul class="double">
     <li class="container">
-      <pre>
-<code>/* SASS */</code>
-<code>.content</code>
-<code>  border: 1px solid red</code>
-<code>  color: black</code>
-      </pre>
+      <pre><code>/* SASS */
+.content
+  border: 1px solid red
+  color: black
+      </code></pre>
     </li>
     <li>
-      <pre>
-<code>/* SCSS */</code>
-<code>.content {</code>
-<code>    border: 1px solid red;</code>
-<code>    color: black;</code>
-<code>}</code>
-      </pre>
+      <pre><code>/* SCSS */
+.content {
+    border: 1px solid red;
+    color: black;
+}</code></pre>
     </li>
   </ul>
 </section>
@@ -71,7 +69,7 @@ body {
 </section>
 
 <section class="slide">
-  <h2>Nesting</h2>
+  <h2>Nesting (Вкладення)</h2>
   <pre>
                 <code>
 nav {
@@ -222,7 +220,8 @@ p {
 
 <section class="slide">
   <h2>@while</h2>
-  <pre><code class="sass">$i: 6;@while $i > 0 {
+  <pre><code class="sass">$i: 6;
+@while $i > 0 {
   .item-#{$i} { width: 2em * $i; }
   $i: $i - 2;
 }
@@ -254,14 +253,28 @@ p {
 
 <section class="slide">
   <h2>@mixin with arguments</h2>
-  <pre><code class="sass">@mixin sexy-border($color, $width) {
+  <pre><code class="sass">@mixin my-border($color, $width) {
   border: {
     color: $color;
     width: $width;
     style: dashed;
   }
 }
-p { @include sexy-border(blue, 1in); }
+p { @include my-border(blue, 1in); }
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>@mixin with default arguments</h2>
+  <pre><code class="sass">@mixin my-border($color: white, $width: 1px) {
+  border: {
+    color: $color;
+    width: $width;
+    style: dashed;
+  }
+}
+p { @include my-border(); }
+h5 { @inlude my-border($width: 2px); }
   </code></pre>
 </section>
 
@@ -368,6 +381,109 @@ $gutter-width: 10px;
 
 <section class="slide">
   Чи є у вас запитання?
+</section>
+
+<section class="slide">
+  <h2>Завдання</h2>
+  <p>
+    Оголосити змінну <code>$color</code> із значенням #000, а потім використати
+    для фону <code>body</code>
+  </p>
+</section>
+
+<section class="slide">
+  <h2>Завдання</h2>
+  <p>
+    Написати стиль, де у <code>ul</code> <code>margin</code> встановлюється в <code>0</code>,
+    а у всіх внутрішніх <code>a</code> колір зробити червоним
+  </p>
+</section>
+
+<section class="slide">
+  <h2>Завдання</h2>
+  <p>
+    Створити один файл, де визначається змінна <code>$color</code> із певним значенням,
+    а потім через <code>@import</code> цього файлу використати її значення у іншому файлі
+  </p>
+</section>
+
+<section class="slide">
+  <h2>Завдання</h2>
+  <p>
+    Створити <code>mixin</code> <code>my-border</code>, який приймає аргумент <code>$thikness</code> і встановлює
+    його значення у <code>border-width</code>, використати його для <code>img</code>,
+    щоб ширина бордеру була <code>10px</code>
+  </p>
+</section>
+
+<section class="slide">
+  <h2>Завдання</h2>
+  <p>
+    Створити правило для <code>.push-button</code>, в якому прописати правило <code>background-color: blue;</code>,
+    тепер створити правило для <code>.main-button</code>, який повинен наслідувати (<code>@extend</code>)
+    <code>.push-button</code> і мати в собі правило <code>font-weight: bold;</code>
+  </p>
+</section>
+
+<section class="slide">
+  <h2>Завдання</h2>
+  <p>
+    Визначити змінну <code>$page-width</code> із значенням <code>1400px</code>, змінну <code>$padding</code> із
+    значенням <code>20px</code>. Описати правила для <code>.container</code>, де йому задається відповідний падінг, а
+    також <code>width</code>, яка дорівнює значенню <code>$page-width</code> без подвоєного значення <code>$padding</code>
+  </p>
+</section>
+
+<section class="slide">
+  <h2>Завдання</h2>
+  <p>
+    Використовуючі вкладені властивості, для <code>.sassy</code> описати <code>border</code>, у якого
+    <code>width</code> дорівнює <code>10px</code>, червоний колір та <code>5px</code> радіус.
+  </p>
+</section>
+
+<section class="slide">
+  <h2>Завдання</h2>
+  <p>
+    Написати правило для елементу <code>button</code>, щоб його колір був зеленим, і використовуючи
+    батьківський селектор, для стану <code>:hover</code> змінити колір на червоний
+  </p>
+</section>
+
+<section class="slide">
+  <h2>Завдання</h2>
+  <p>
+    Створити змінну <code>$selector: article</code>, і використовуючи інтерполяцію для заданого селектору визначити
+    <code>color: #f00</code>
+  </p>
+</section>
+
+<section class="slide">
+  <h2>Завдання</h2>
+  <p>
+    Написати Sass скріпт, який генерує правила для селекторів <code>.#{$big-cat}-picture</code>,
+    де <code>$big-cat</code> набуває наступних значень: 'cheetah', 'puma',
+    'jaguar', 'panther', 'tiger', 'leopard', і встановити їм <code>padding</code> у <code>3em</code>
+  </p>
+</section>
+
+<section class="slide">
+  <h2>Завдання</h2>
+  <p>
+    Написати правила для елементів від h1 до h6, що встановлюють їх <code>font-size</code> у <code>24px</code>
+    мінус <code>3px</code> помножене на рівень заголовку. Тобто для <code>h1</code> це - <code>24px - 3px * 1</code>.
+    Використати директиву <code>@for</code>
+  </p>
+</section>
+
+<section class="slide">
+  <h2>Завдання</h2>
+  <p>
+    По аналогії із попереднім завданням.
+    Написати правила для елементів від h1 до h6, що встановлюють їх <code>font-size</code> у <code>24px</code>
+    мінус <code>3px</code> помножене на рівень заголовку. Тобто для <code>h1</code> це - <code>24px - 3px * 1</code>.
+    Використати директиву <code>@while</code>
+  </p>
 </section>
 <!--
   To hide progress bar from entire presentation
