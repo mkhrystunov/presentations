@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Shower Presentation Engine</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
+  <style>
+    img {
+      max-width: 100%;
+      max-height: 50%;
+    }
+
+  </style>
+</head>
+<body class="shower">
+
+<div class="step slide">
+  <h2>BEM</h2>
+  <p>Block Element Modifier</p>
+</div>
+
+<section class="slide">
+  <p>
+    БЕМ (Блок, Елемент, Модифікатор) - компонентний підхід у веб-розробці. В його основі лежить
+    принцип розділення інтерфейсу на незалежні блоки. Він дозволяє легко і швидко розробляти
+    інтерфейси будь-якої важкості і повторно використати існуючий код, уникаючи "Copy-Paste".
+  </p>
+</section>
+
+<section class="slide">
+  <h2>Блок</h2>
+  <p>
+    Функціонально незалежний компонент сторінки, який може бути повторно використаний.
+  </p>
+</section>
+
+<section class="slide">
+  <h2>Особливості Блоків</h2>
+  <ul>
+    <li>
+      Назва блоку характеризує сенс ("що це?" - "меню": <code>menu</code>, "кнопка": <code>button</code>,
+      а не стан ("який, як виглядає?" - "червоний": <code>red</code>, "великий": <code>big</code>.
+    </li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>Особливості Блоків</h2>
+  <ul>
+    <li>
+      Блок не повинен впливати на своє оточення, тобто блоку не потрібно задавати зовнішню геометрію
+      (у вигляді відступів, кордонів, що впливають на розмір) і позиціонування.
+    </li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>Особливості Блоків</h2>
+  <ul>
+    <li>
+      В CSS по БЕМ також не рекомендується використовувати селектори по тегам чи <code>id</code>
+    </li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>Принципи роботи із блоками</h2>
+  <ul>
+    <li>Блоки можна вкладувати один в одного</li>
+    <li>Допустима будь-яка вкладуваність блоків</li>
+  </ul>
+  <pre><code>
+&lt;header class="header"&gt;
+    &lt;div class="logo"&gt;&lt;/div&gt;
+
+    &lt;form class="search-form"&gt;&lt;/form&gt;
+&lt;/header&gt;
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>Елемент</h2>
+  <p>Складова частина блоку, яка не може використовуватися без нього.</p>
+</section>
+
+<section class="slide">
+  <h2>Особливості елементів</h2>
+  <ul>
+    <li>
+      Назва елементу характеризує сенс ("що це?" - "пункт": <code>item</code>, "текст": <code>text</code>),
+      а не стан ("який, як виглядає?" - "червоний": <code>red</code>, "великий": <code>big</code>)
+    </li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>Особливості елементів</h2>
+  <ul>
+    <li>
+      Структура повного імені елементу відповідає схемі: <code>назва-блоку__назва-елементу</code>.
+      Назва елементу відділяється від назви блоку двома підкреслюваннями (<code>__</code>).
+    </li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>Особливості елементів (наприклад)</h2>
+  <pre><code>&lt;form class="search-form"&gt;
+    &lt;input class="search-form__input"&gt;
+    &lt;button class="search-form__button"&gt;Знайти&lt;/button&gt;
+&lt;/form&gt;
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>Принципи роботи із елементами</h2>
+  <ul>
+    <li>Вкладеність</li>
+    <li>Належність</li>
+    <li>Необов'язковість</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>Принципи роботи із елементами (Вкладеність)</h2>
+  <ul>
+    <li>Елементи можна вкладувати один в одного</li>
+    <li>Допустима будь-яка владуваність елементів</li>
+    <li>
+      Елемент - завжди частина блоку, а не іншого елементу. Це означає, що в назві елементів не можна
+      прописувати ієрархію вигляду <code>block__elem1__elem2</code>.
+    </li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>Принципи роботи із елементами (Вкладеність, приклад)</h2>
+  <pre><code>&lt;form class="search-form"&gt;
+    &lt;div class="search-form__content"&gt;
+        &lt;input class="search-form__input"&gt;
+        &lt;button class="search-form__button"&gt;
+            Знайти
+        &lt;/button&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>Принципи роботи із елементами (Вкладеність, приклад)</h2>
+  <pre><code>&lt;!-- Неправильно --&gt;
+&lt;form class="search-form"&gt;
+    &lt;div class="search-form__content"&gt;
+        &lt;input class="search-form__content__input"&gt;
+        &lt;button class="search-form__content__button"&gt;
+            Знайти
+        &lt;/button&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>Принципи роботи із елементами (Вкладеність)</h2>
+  <p>Структура блоку в CSS завжди однакова, в той час як в HTML може змінюватися</p>
+  <pre><code>.block {}
+.block__elem1 {}
+.block__elem2 {}
+.block__elem3 {}
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>Принципи роботи із елементами (Належність)</h2>
+  <p>Елемент - завжди частина блоку і не повинен використовуватися окремо від нього.</p>
+</section>
+
+<section class="slide">
+  <h2>Принципи роботи із елементами (Належність, приклад)</h2>
+  <pre><code>&lt;form class="search-form"&gt;
+    &lt;input class="search-form__input"&gt;
+
+    &lt;button class="search-form__button"&gt;
+        Знайти
+    &lt;/button&gt;
+&lt;/form&gt;
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>Принципи роботи із елементами (Належність, приклад)</h2>
+  <pre><code>&lt;!-- Неправильно --&gt;
+&lt;form class="search-form"&gt;
+&lt;/form&gt;
+&lt;input class="search-form__input"&gt;
+
+&lt;button class="search-form__button"&gt;Знайти&lt;/button&gt;
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>Принципи роботи із елементами (Необов'язковість)</h2>
+  <p>Елемент - необов'язковий компонент блоку. Не у всіх блоків повинні бути елементи.</p>
+</section>
+
+<section class="slide">
+  <h2>Принципи роботи із елементами (Необов'язковість, приклад)</h2>
+  <pre><code>&lt;div class="search-form"&gt;
+    &lt;input class="input"&gt;
+
+    &lt;button class="button"&gt;Найти&lt;/button&gt;
+&lt;/div&gt;
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>Коли створювати блок, а коли елемент?</h2>
+  <ol>
+    <li>
+      Якщо фрагмент коду може бути використаний повторно і не залежить від реалізації інших
+      компонентів сторінки, необхідно створювати блок.
+    </li>
+    <li>
+      Якщо фрагмент коду не може використовуватися самостійно, без батьківської сутності (блоку),
+      в більшості випадків створюється елемент.
+    </li>
+  </ol>
+</section>
+
+<section class="slide">
+  <h2>Модифікатор</h2>
+  <p>Сутність, що визначає зовнішній вигляд, стан або поведілку блоку чи елементу</p>
+</section>
+
+<section class="slide">
+  <h2>Особливості модифікаторів</h2>
+  <ul>
+    <li>
+      Назва модифікатору характеризує зовнішній вигляд ("який розмір?", "яка тема?" і т.п. -
+      "розмір": <code>size_s</code>, "тема": <code>theme_islands</code>), стан ("чим відрізняється від
+      інших?" - "відключений": <code>disabled</code>, "сфокусований": <code>focused</code>) і поведінку
+      ("як себе веде?", "як взаємодіє із користувачем?" - "напрямок": <code>directions_left-top</code>.
+    </li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>Особливості модифікаторів</h2>
+  <ul>
+    <li>
+      Ім'я модифікатору відділяється від імені блоку або елементу одним підресленням (<code>_</code>).
+    </li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>Типи модифікаторів (Булевий)</h2>
+  <ul>
+    <li>
+      Використовується, коли важлива лише наявність або відсутність модифікатору, а його значення несуттєве.
+      Наприклад, "відключений": <code>disabled</code>. Вважається, що за наявності булевого модифікатору його
+      значення <code>true</code>.
+      <ul>
+        <li><code>назва-блоку_назва-модифікатору</code></li>
+        <li><code>назва-блоку__назва-елементу_назва-модифікатору</code></li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>Типи модифікаторів (Ключ-значення)</h2>
+  <ul>
+    <li>
+      Використовується, коли важливе значення модифікатору. Наприклад,
+      "меню із темою оформлення <code>islands</code>": <code>menu_theme_islands</code>
+      <ul>
+        <li><code>назва-блоку_назва-модифікатору_значення-модифікатору</code></li>
+        <li><code>назва-блоку__назва-елементу_назва-модифікатору_значення-модифікатору</code></li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>Типи модифікаторів (Ключ-значення, приклад)</h2>
+  <pre><code>&lt;form class="search-form search-form_theme_islands"&gt;
+    &lt;input class="search-form__input"&gt;
+
+    &lt;button
+      class="search-form__button search-form__button_size_m"&gt;
+        Знайти
+    &lt;/button&gt;
+&lt;/form&gt;
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>Типи модифікаторів (Ключ-значення, приклад)</h2>
+  <pre><code>&lt;!-- Неправильно --&gt;
+&lt;form class="search-form
+             search-form_theme_islands
+             search-form_theme_lite"&gt;
+    &lt;input class="search-form__input"&gt;
+    &lt;button class="search-form__button"&gt;
+        Знайти
+    &lt;/button&gt;
+&lt;/form&gt;
+  </code></pre>
+</section>
+
+<section class="slide">
+  <h2>Принципи роботи із модифікаторами</h2>
+  <p>
+    З точки зору БЕМ модифікатор не може використовуватися відірваним від модифікованого блоку чи елементу.
+    Він повинен змінювати вигляд, поведінку чи стан сутності, а не замінювати її.
+  </p>
+</section>
+
+<section class="slide">
+  <h2>Мікс</h2>
+  <p>
+    Прийом, що дозволяє використовувати різні БЕМ-сутності на одному DOM-вузлі.
+  </p>
+  <div>
+    Мікси дозволяють:
+    <ul>
+      <li>зуміщувати поведінку і стилі декількох сутностей без дублювання коду</li>
+      <li>створювати семантично нові компоненти інтерфейсу на основі вже існуючих</li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Мікс (приклад)</h2>
+  <pre><code>&lt;div class="header"&gt;
+    &lt;div class="search-form header__search-form"&gt;&lt;/div&gt;
+&lt;/div&gt;
+  </code></pre>
+</section>
+
+<section class="slide">
+  Запитання?
+</section>
+<!--
+  To hide progress bar from entire presentation
+  just remove “progress” element.
+  -->
+<div class="progress"></div>
+<script src="shower/shower.min.js"></script>
+<!-- Copyright © 2015 Yours Truly, Famous Inc. -->
+<!-- Photos by John Carey, fiftyfootshadows.net -->
+</body>
+</html>
