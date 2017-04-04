@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Shower Presentation Engine</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
+  <style>
+    img {
+      max-width: 100%;
+      max-height: 50%;
+    }
+
+  </style>
+</head>
+<body class="shower full">
+
+<div class="step slide">
+  <h2>Internet</h2>
+  <p>Що відбувається від набору URL у браузері до відображення веб-сторінки?</p>
+</div>
+
+<div class="slide">
+  <h2>Long story short</h2>
+</div>
+
+<div class="slide">
+  <h2>Отримання IP-адреси</h2>
+  <p>
+    Комп'ютер надсилає запит до серверу DNS (Domain Name System), щоб знайти який саме IP пов'язаний із доменом,
+    що ви ввели.
+    Якщо ж відразу ввести IP, то ви відразу потрапите на сервер без DNS.
+  </p>
+</div>
+
+<div class="slide">
+  <h2>Надсилання інформації на сервер вебсайту</h2>
+  <p>
+    Комп'ютер надсилає HTTP GET запит на сервер, IP якого отримав.
+  </p>
+</div>
+
+<div class="slide">
+  <h2>Отримання інформації від серверу</h2>
+  <p>
+    Сервер опрацьовує ваш запит і повертає назад певні дані. Для веб-сторінки це html, css тощо.
+  </p>
+</div>
+
+<div class="slide">
+  <h2>Користувач бачить сайт</h2>
+  <p>
+    Браузер опрацьовує повернений результат і відображає його користувачеві.
+  </p>
+</div>
+
+<!--
+  To hide progress bar from entire presentation
+  just remove “progress” element.
+  -->
+<div class="progress"></div>
+<script src="shower/shower.min.js"></script>
+<!-- Copyright © 2015 Yours Truly, Famous Inc. -->
+<!-- Photos by John Carey, fiftyfootshadows.net -->
+</body>
+</html>
